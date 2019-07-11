@@ -1,0 +1,41 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Stack}
+Stack is the suprising Data Structure that comes in handy in unexpected of times.
+
+\section{Balanced Parantheses}
+A bracket sequence is balanced if either of the below are true. As all of them are equivalent.
+
+\begin{itemize}
+  \item Every element of prefix sum array is $\geq$ 0 and last element is 0.
+  \item When open bracket is encountered push it to the stack and pop the top open bracket otherwise. If there is no open bracket to pop or the stack is not empty at the end, the sequence is not balanced.
+  \item Base Case : Empty sequence is balanced.\\
+  Constructor Case : If s,t (sequences) are balanced then s(t) is balanced.\\
+  Now check if our sequence can be produced this way using recursion. 
+\end{itemize}
+
+Overlapping two balanced sequences produces a balanced sequence. Prove it using the 1st definition. \\
+
+$C_{i}$ (catalan number) counts the number of sequences containing n pairs of parentheses which are correctly matched. Using this we can calculate in O(n) unlike other DP solutions.\\
+
+Let s[0..n-1] be a balanced sequence
+\begin{itemize}
+	\item s[0..i] is balanced iff s[i+1..n-1] is balanced.	
+\end{itemize}
+
+\pagebreak
+
+When sequence is balanced, we can pairup open and closed brackets. This is done during the 2nd definition. When we are popping out the open bracket from stack(when closed br is encountered) we pair those two.\\
+
+The pairing can also be done like this. For open bracket at i, find the minimum index j S.t sum[i..j]=0. (i,j) are paired\\
+
+Let ith and jth index (i$<$j) are paired.
+\begin{itemize}
+	\item s[i..k] $i<k<j$ is not balanced.
+	\item If $i<l<j$ then the partner of l (named as r), $i<r<j$. \\
+	Proof: We know $sum[i..l-1]>0 => sum[l..j]<0$ since $sum[l..l] = 0$ there exists $r<j$ S.t $sum[l..r]=0$. We used the property that $sum[i..j]$ is continous over j.
+\end{itemize} 
+
+\end{document}
