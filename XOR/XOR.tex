@@ -1,0 +1,37 @@
+\documentclass[../Notes.tex]{subfiles}
+
+
+\begin{document}
+\chapter{XOR}
+Competitive problem setters love XOR (never understood the physical significance of it).\\
+
+Different techniques to solve problems on XOR
+\begin{itemize}
+	\item Bit Trie.
+	\item Solving for each individual bit and combining them at the end.
+	\item Using Lexicographic property. If the most significant bit in binary form a number is 1 and the other number has 0 then first number is greater (no matter what the other bits are).
+	\item In problems concerning XOR converting the array into prefix array can be useful.
+\end{itemize}
+
+Some tricks in solving XOR problems
+\begin{itemize}
+	\item $4k\oplus(4k+1)\oplus(4k+2)\oplus(4k+3)=0$ (used in finding XOR of numbers from 1..1e18)
+	\item If $a\oplus b=0$ and $b\neq c$ $\implies$ $c\oplus b\neq0$. This trick is mostly used in number theory to prove theorems on nim.
+	\item If the array is sorted, all the elements with the same first x bits will be contigous $\forall$x.
+\end{itemize}
+
+\pagebreak
+
+\section{Game Theory}
+There are two type of operations involved in game theory
+\begin{itemize}
+	\item MEX
+	\item XOR
+\end{itemize}
+
+\textbf{Sprague-Grundy Theorem :} \\
+
+If we know the MEX function of different games (G1, G2.. ) then the MEX function of combined games is XOR of all the functions.
+
+
+\end{document}
