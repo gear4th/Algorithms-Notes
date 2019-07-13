@@ -1,0 +1,26 @@
+\documentclass[../Notes.tex]{subfiles}
+
+
+\begin{document}
+\chapter{Graphs}
+
+\begin{itemize}
+	\item In OJ's most of the problems concerning MST's can be solved with Kruskal's algorithm.(others are Prim's and Boruvka's) 
+\end{itemize}
+
+\section{Trees}
+
+While performing tree dp we can keep a map (of values in the subtree) at each node. This is a very generic trick and seems to have high potential.
+
+we will traverse the tree from the down most level (level wise).
+
+\begin{itemize}
+	\item Have maps at each of the lowest level nodes.(each map has only one entry)
+	\item Now when we go up to produce map of node 'u' in this level.\\
+	Take the largest map among children of u and add remaining children maps in to this big map. Now add the value corresponding to 'u' to the map. Now this map is the final map for 'u'.
+	\item Since when each node moves from one map m1 to other m2, $sizeof(m2) \geq sizeof(m1)$. Final size of m2 after addition will be $\geq 2*sizeof(m1)$. So any node will change maps only $lg(n)$ times. So the time complexity is $O(nlg(n))$.
+	\item The memory is $O(n)$ throught out the procedure. Since we are inserting smaller maps in to the big map(which is already present).
+	\item This can be implemented using dfs.
+\end{itemize}
+
+\end{document}

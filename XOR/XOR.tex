@@ -11,6 +11,8 @@ Different techniques to solve problems on XOR
 	\item Solving for each individual bit and combining them at the end.
 	\item Using Lexicographic property. If the most significant bit in binary form a number is 1 and the other number has 0 then first number is greater (no matter what the other bits are).
 	\item In problems concerning XOR converting the array into prefix array can be useful.
+	\item In tougher problems, divide and conquer is also used (i.e solve the problem for the numbers with 0 at considered bit, and solve for numbers with 1 at considered bit and combine them for the answer).\\
+	\href{https://www.codechef.com/MARCH12/problems/XOR/}{Problem link}
 \end{itemize}
 
 Some tricks in solving XOR problems
@@ -18,6 +20,7 @@ Some tricks in solving XOR problems
 	\item $4k\oplus(4k+1)\oplus(4k+2)\oplus(4k+3)=0$ (used in finding XOR of numbers from 1..1e18)
 	\item If $a\oplus b=0$ and $b\neq c$ $\implies$ $c\oplus b\neq0$. This trick is mostly used in number theory to prove theorems on nim.
 	\item If the array is sorted, all the elements with the same first x bits will be contigous $\forall$x.
+	\item $a+b=a\oplus b + 2*(a\And b)$
 \end{itemize}
 
 \pagebreak

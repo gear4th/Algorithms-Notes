@@ -1,0 +1,14 @@
+\documentclass[../Notes.tex]{subfiles}
+
+
+\begin{document}
+\chapter{C++ tricks}
+
+\begin{itemize}
+	\item In a normal set finding the $ith$ element is not possible in o(lgn)
+	and it is also not possible to know number of elements less than a given value.
+	\item As the above operations are theoretically possible for a balanced BST, we use policy data structure to support those two additional operations along with normal set operations. \href{https://codeforces.com/blog/entry/11080}{Blog link}
+	\item But for using the above structure as a multiset, there is no easy way to do it. We will use a shortcut by inserting pair (value, time of insertion) to distinguish equal elements. And do operations around that.
+\end{itemize}
+
+\end{document}
