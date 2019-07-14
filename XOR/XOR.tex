@@ -13,6 +13,8 @@ Different techniques to solve problems on XOR
 	\item In problems concerning XOR converting the array into prefix array can be useful.
 	\item In tougher problems, divide and conquer is also used (i.e solve the problem for the numbers with 0 at considered bit, and solve for numbers with 1 at considered bit and combine them for the answer).\\
 	\href{https://www.codechef.com/MARCH12/problems/XOR/}{Problem link}
+	\item Gaussian elimination is used to find subset with maximum XOR.
+	\item XOR of two numbers is just bitwise addition (mod 2).
 \end{itemize}
 
 Some tricks in solving XOR problems
@@ -22,8 +24,6 @@ Some tricks in solving XOR problems
 	\item If the array is sorted, all the elements with the same first x bits will be contigous $\forall$x.
 	\item $a+b=a\oplus b + 2*(a\And b)$
 \end{itemize}
-
-\pagebreak
 
 \section{Game Theory}
 There are two type of operations involved in game theory
@@ -36,5 +36,7 @@ There are two type of operations involved in game theory
 
 If we know the MEX function of different games (G1, G2.. ) then the MEX function of combined games is XOR of all the functions.
 
-
+\begin{itemize}
+	\item In a nim game with custom moves (examp. we can remove 1,2,5 stones at once) there will always be a periodicity of mexes with number of stones.
+\end{itemize}
 \end{document}
