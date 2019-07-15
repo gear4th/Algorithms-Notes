@@ -10,6 +10,14 @@
 		\item MO's algorithm(offline algo) : When there is no query of update form then we can take all the queries and sort them in a certain way to make naive computation faster.
 		\item (online algo)Divide the array in to blocks each of size ($\sqrt{n}$) and process both kind of queries in O($\sqrt{n}$) each.
 	\end{itemize} 
+	\item Let p be permutation and $next_{i}$ be the smallest $j>i$ s.t $p[j]>p[i]$. Then when we draw edges(curves) from $i -> next_{i}$ on top of the array then no two edges intersect. (i.e the condition $i<j<next_{i}<next_{j}$ is never satisfied for any pair of indices i,j).
+	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.) 
+\end{itemize}
+
+
+\section{Permutation}
+\begin{itemize}
+	\item If we have a directed graph of n nodes, and connect ith to jth iff $p[i]=j$; then we get a bunch of disjoint cycles.
 \end{itemize}
 
 \end{document}
