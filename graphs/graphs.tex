@@ -26,4 +26,28 @@ we will traverse the tree from the down most level (level wise).
 	\item This can be implemented using dfs.
 \end{itemize}
 
+In DSU, while performing dsu one of the three types of techniques is used.
+\begin{itemize}
+	\item Path Compression \\
+	Find(x)\\
+    	\hspace*{1em}if x.parent != x\\
+     		\hspace*{1em}\hspace*{1em}x.parent := Find(x.parent)\\
+   	return x.parent
+   	
+   	\item Path Halving \\
+   	Find(x)\\
+   		\hspace*{1em}while x.parent != x\\
+     		\hspace*{1em}\hspace*{1em}x.parent := x.parent.parent\\
+     		\hspace*{1em}\hspace*{1em}x := x.parent\\
+   return x
+   
+   \item Path Splitting.
+\end{itemize}
+In the problems where we need a pointer to an ancestor in a tree (or similarly in the array) and update operations makes you add more links then Path compression is useful. Example \\
+
+Given a tree with each node having a value $a_{i}$. There are two kind of operations\\
+Update : update $a_{i}$ with c where $c<a_{i}$.\\
+Query : Given u. Find the deepest node with value $>= k$ which is ancestor of u.
+
+
 \end{document}
