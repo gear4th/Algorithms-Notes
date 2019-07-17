@@ -13,6 +13,30 @@ There are certain kind of problems where number of edges are huge. They are not 
 
 \section{Trees}
 
+These are the different ways we approach problems based on trees.
+\begin{itemize}
+	\item Tree dp.
+	\item Normal dfs (greedy version of dp approach).
+	\pagebreak
+	\begin{lstlisting}
+	void dfs(int u, int par){
+		for(auto v:g[u]){
+			if(v!=par){
+				dfs(v,u);	//recursively solve for all the subtrees
+			}
+		}
+		//When the function reaches this step all the children will be proceseed.Now use the children's information to solve for u.
+		/*
+			actual code.
+		*/
+		return;
+	}
+	\end{lstlisting}
+	\item binary lifting.
+	\item Using Lowest common ancestor (this can be done using binary lifting).
+	\item sqrt decomposition on trees.
+\end{itemize}
+
 While performing tree dp we can keep a map (of values in the subtree) at each node. This is a very generic trick and seems to have high potential.
 
 we will traverse the tree from the down most level (level wise).
@@ -29,17 +53,21 @@ we will traverse the tree from the down most level (level wise).
 In DSU, while performing dsu one of the three types of techniques is used.
 \begin{itemize}
 	\item Path Compression \\
-	Find(x)\\
-    	\hspace*{1em}if x.parent != x\\
-     		\hspace*{1em}\hspace*{1em}x.parent := Find(x.parent)\\
-   	return x.parent
+	\begin{lstlisting}
+	Find(x)
+    	if x.parent != x
+     		x.parent := Find(x.parent)
+	return x.parent
+   	\end{lstlisting}
    	
    	\item Path Halving \\
-   	Find(x)\\
-   		\hspace*{1em}while x.parent != x\\
-     		\hspace*{1em}\hspace*{1em}x.parent := x.parent.parent\\
-     		\hspace*{1em}\hspace*{1em}x := x.parent\\
-   return x
+   	\begin{lstlisting}
+   	Find(x)
+   		while x.parent != x
+     		x.parent := x.parent.parent
+     		x := x.parent
+   	return x
+   \end{lstlisting}
    
    \item Path Splitting.
 \end{itemize}

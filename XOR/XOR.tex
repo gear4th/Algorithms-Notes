@@ -26,7 +26,30 @@ Some tricks in solving XOR problems
 \end{itemize}
 
 \section{Game Theory}
-There are two type of operations involved in game theory
+There are different kinds of differentiation used in games.
+\begin{itemize}
+	\item Simultaneous move game and extensive form game.
+	\item Finite games and infinite games (both are extensive form games)
+	\item perfect and imperfect information games.
+	\item partial and impartial games.(In Extensive form games, if state of game is given but moves differ for two players then its partial game).
+	\item zero sum and non zero sum
+\end{itemize}
+
+We deal with games which are two player, extensive, finite, perfect info, impartial and zero sum(not always) in nature(in OJ's).
+ 
+\textbf{Game Tree} : A tree where nodes are all the states and edges are possible moves with root as starting state.\\
+\textbf{Strategy} : For a player, A strategy is a complete algorithm for playing the game, telling a player what to do for every possible situation(state) throughout the game. (i.e for every state possible, a single move is associated with it).\\
+\textbf{payoff (reward)} : In the game tree, we define payoff's for each players at every terminal node.(for example it may simply state who won i.e $payoff_{a}=inf, payoff_{b}=-inf$ if player a wins at that terminal node).\\
+In zerosum games $payoff_{a} = payoff_{b}$ at every terminal node.
+
+\textbf{Payoff function}: It takes strategies of players as input and outputs payoff's for both the players. It just outputs the payoffs of the terminal node at which game ends when actually played.(Since strategies are known we know how game will play out).
+
+When optimal play is stated in the problem. They imply what's the payoff when backward induction strategy profile is used?
+
+When player tries to maximize some quantity is given in the problem. Then that quantity is payoff.
+\pagebreak
+
+There are two type of operations involved in game theory of impartial extensive(second player plays after first player finishes the move) games.
 \begin{itemize}
 	\item MEX
 	\item XOR
