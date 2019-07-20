@@ -16,6 +16,52 @@
 	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.) 
 \end{itemize}
 
+Consider a divide and conquer algorithm with time complexity recurrence.
+$T(n)=T(e_1)+T(e_2)+e_1 (e1<=e2 \wedge e1+e2=n)$.\\ 
+The closed form is $T(n) = O(nlgn)$.\\
+This can be proved using induction or realising the fact the every element is included in the $e_1$ term atmost lgn times.\\
+
+\section{Segment Tree}
+You are given an array of elements(may be null initially) and queries over subarrays.\\
+There are two properties for a segment tree.
+\begin{itemize}
+	\item SegProp : required property from a segment.
+	\item update type.
+\end{itemize}
+
+For the Segment tree to be valid it needs to satisfy
+\begin{itemize}
+	\item req 1 : We need to be able to find segprop from segprop's of any contigous partition subsegments of segment. 
+\end{itemize}
+
+For the lazy segment tree to be valid it needs to satisfy this below additional properties.
+\begin{itemize}
+	\item req 2 : If there are two or more updates on the same segment, we need to be able to combine them in to a single update.
+	\item req 3 : If there is an update for a segment(whole segment). We need to be able to update segprop for the segment in $O(1)$.
+\end{itemize}
+\pagebreak
+Lazy segment tree update template
+\begin{lstlisting}
+	void update(int si ,int ss, int se, int l, int r, int val){
+		If there is lazy update pending:
+			update seg prop for this node with lazy update;	\\req 3
+			make lazy update for this node null;
+			combine the lazy updates of children with this update;	\\req 2
+		
+		If current node segment is out of update range return;
+		
+		If the current node segment is completely in update range:
+			update segprop of this node;	\\req 3
+			combine the lazy updates of children with this update; \\req 2
+			return;
+		recursively call update for both children;
+		update this node segprop with childrens seg prop. \\req 1
+	}
+\end{lstlisting}
+
+Store the segprop's and lazy updates in 4*N sized array.\\
+
+We can even store entire subsegment's in each node. The memory is only $O(nlgn)$. 
 
 \section{Permutation}
 \begin{itemize}
