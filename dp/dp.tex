@@ -24,6 +24,20 @@ Some Points to note
 
 \section{treeDP}
 \begin{itemize}
-	\item In some problems we root the tree at random node(r). Initially we calculate a certain property $s_{u}$ for a subtree rooted at node u $\forall u \in V(vertexSet)$ in $O(n)$ using dfs. Now we can reroot the tree to one of the children of r and recompute all the $s_u$ in $O(1)$ as only two $S_u$'s changes(one is r and the other is the new root(selected child of r)).
+	\item In some problems we root the tree at random node(r). Initially we calculate a certain property $SubProp_{u}$ for a subtree rooted at node u $\forall u \in V(vertexSet)$ in $O(n)$ using dfs. Now we can reroot the tree to one of the children of r and recompute all the $Subprop_u$ in $O(1)$ as only two $SubProp_u$'s changes(one is r and the other is the new root(selected child of r)). Template is below\\
+precalculate SubProp's for random node initially. Then call the below dfs from that node.
+	\begin{lstlisting}
+		void dfs(int u, int par){
+			\\ Now all the SubProp array is correctly calculated when u is the root. Use it.
+			for(auto v:g[u]){
+				if(v!=par){
+					\\reroot the tree to v and adjust SubProp array correctly.
+					dfs(v,u);
+					\\reroot the tree to u and adjust SubProp array correctly.
+				}
+			}
+			return;
+		}
+	\end{lstlisting}
 \end{itemize}
 \end{document}
