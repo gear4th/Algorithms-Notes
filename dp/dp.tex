@@ -17,7 +17,8 @@ Some Points to note
 	\item Counting problems either involves combinatorics or dp and nothing else.
 	\item There are counting DP problem's where we need to find no of ways to pair or group elements. We can have dp with one dimension representing no of groups which are not closed yet. This can be used both in arrays, trees etc.  
 	\item we proove most optimization dp's using this kind of proving techniques.
-	\href{Material/dpproof.pdf}{proof}
+	\href{Material/dpproof.pdf}{proof}.\pagebreak
+	\item while solving optimization dp(topdown,bottomup,forward), Keep another array 'prev' which stores the state from which this state's answer is calculated.(among all the searched subproblem states). Which makes it easy to recover the complete solution instead of only value. This can be done just by having a while loop starting at final state and iterating through prev states. 
 \end{itemize}
 
 \section{arrayDP}
