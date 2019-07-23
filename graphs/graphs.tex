@@ -17,6 +17,7 @@ These are the different ways we approach problems based on trees.
 \begin{itemize}
 	\item Tree dp.
 	\item Normal dfs (greedy version of dp approach).
+	\item Process nodes from lowest level to top.(leaves to root).
 	\pagebreak
 	\begin{lstlisting}
 	void dfs(int u, int par){
@@ -32,6 +33,7 @@ These are the different ways we approach problems based on trees.
 		return;
 	}
 	\end{lstlisting}
+	\item start time, end time on nodes.
 	\item binary lifting.
 	\item Using Lowest common ancestor (this can be done using binary lifting).
 	\item sqrt decomposition on trees.
@@ -76,6 +78,8 @@ In the problems where we need a pointer to an ancestor in a tree (or similarly i
 Given a tree with each node having a value $a_{i}$. There are two kind of operations\\
 Update : update $a_{i}$ with c where $c<a_{i}$.\\
 Query : Given u. Find the deepest node with value $>= k$ which is ancestor of u.
+
+In similar problems (having pointer in tree or array) we can use binary lifting on pointer's sometimes.
 
 
 \end{document}
