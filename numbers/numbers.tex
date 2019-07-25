@@ -12,6 +12,8 @@
 	\href{./Material/divergent series proof.pdf}{Proof link}
 	\item the factors of any number are quite smaller compared to the  number. There doesn't exist a pair of distinct factors whose sum is $\geq$ the actual number.
 	\item 'a' is multiple of $n_1$ and 'a' is multiple of $n_2$ iff 'a' is multiple of $LCM(n_1,n_2)$. 
+	\item The set of all integer combinations of a and b is precisely the set of all integer multiples of the GCD of a and b. \href{https://proofwiki.org/wiki/Set_of_Integer_Combinations_equals_Set_of_Multiples_of_GCD}{proof}
+	\item The above statement is generalized version of Bezout's identity.
 \end{itemize}
 
 \section{Modulo}
@@ -31,4 +33,12 @@ One of our solution is $x_o=a_1+x^\prime \frac{a_2-a_1}{d}n_1$. And our solution
 
 For solving multiple equations combine first two equations in to one using above technique. Then again combine the newly obtained equation with the $3^{rd}$ one and so on.
 
+\section{Euler's phi function}
+\begin{itemize}
+	\item Euler's phi function is multiplicative. \href{https://proofwiki.org/w/index.php?title=Euler_Phi_Function_is_Multiplicative&oldid=373969}{proof}.
+	\item using above we can calculate $\varphi(n) = n\cdot \prod_{p\mid n}\left(1 - \frac1p\right).$ where p's are primes.
+	\item Let any number k coprime to n then (k mod n) $\in \varphi(n)$.
+	\item A more generalized form $\varphi (mn) = \varphi (m) \varphi (n) \cdot \dfrac{d}{\varphi (d)}$.
+	\item if d\textbackslash n, the number of integers $k<=n$ and $GCD(k,n)=d$ are $\varphi(n/d)$.
+\end{itemize}
 \end{document}
