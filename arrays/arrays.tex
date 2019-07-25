@@ -11,9 +11,10 @@
 		\item (online algo)Divide the array in to blocks each of size ($\sqrt{n}$) and process both kind of queries in O($\sqrt{n}$) each.
 		\item (online algo) Consider $\sqrt{q}$ operations at a time. Since there can be atmost $O(\sqrt{q})$ update operations. The array will be changed at atmost $\sqrt{q}$ indices hence if we find a way to answer the query operations (in this $\sqrt{q}$ block) with some preprocessing each in $O(\sqrt{q})$.\\
 		 (Example. Find answer for this query without considering any updates in $O(1 \: or \: lgn)$ and update this answer according to changed indices in this range(which are only $\sqrt{q}$ in number). The time complexity of each block will be $O(q)$ hence total complexity will be $O(q\sqrt{q})$.(PreProcessing is done for each block seperately just before considering the block). \href{https://codeforces.com/problemset/problem/785/E}{Example Problem Link}.
-	\end{itemize} 
-	\item Let p be permutation and $next_{i}$ be the smallest $j>i$ s.t $p[j]>p[i]$. Then when we draw edges(curves) from $i -> next_{i}$ on top of the array then no two edges intersect. (i.e the condition $i<j<next_{i}<next_{j}$ is never satisfied for any pair of indices i,j).
-	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.) 
+	\end{itemize}
+	\item Some problems involving subarrays, we can approach this problem through prefix sums,(donot forget that dp also works, even in max subarray sum). 
+	\item Finding min element in subarray can be done using sparse table($O(nlgn)$ preprocess and $O(1)$ query). For 2d array ($O(nmlgnlgm)$ preprocess and $O(1)$ query).Where Seg tree takes $O(nm)$ preprocess and $O(lgnlgm)$ for query. (queries can be up to $n^2m^2$ in number).
+	\item Queries of rectangles with fixed sizes can be done in $O(mn)$ pre and $O(1)$ query.
 \end{itemize}
 
 Consider a divide and conquer algorithm with time complexity recurrence.
@@ -66,6 +67,8 @@ We can even store entire subsegment's in each node. The memory is only $O(nlgn)$
 \section{Permutation}
 \begin{itemize}
 	\item If we have a directed graph of n nodes, and connect ith to jth iff $p[i]=j$; then we get a bunch of disjoint cycles.
+	\item Let p be permutation and $next_{i}$ be the smallest $j>i$ s.t $p[j]>p[i]$. Then when we draw edges(curves) from $i -> next_{i}$ on top of the array then no two edges intersect. (i.e the condition $i<j<next_{i}<next_{j}$ is never satisfied for any pair of indices i,j).
+	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.) 
 \end{itemize}
 
 \end{document}

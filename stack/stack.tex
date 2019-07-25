@@ -3,7 +3,11 @@
 \begin{document}
 
 \chapter{Stack}
-Stack is the suprising Data Structure that comes in handy in unexpected of times.
+Stack is the suprising Data Structure that comes in handy in unexpected of times.\\
+
+we can have a modified stack which gives minimum among the elements in $O(1)$ with rest other stack operations time remaining same.\href{./Material/Minimum stack _ Minimum queue .html}{blog}.\\ 
+
+we can have a standard queue with same operations too \href{./Material/Sliding Window Minimum Implementations.html}{blog}.
 
 \section{Balanced Parantheses}
 A bracket sequence is balanced if either of the below are true. As all of them are equivalent.
@@ -24,8 +28,6 @@ Let s[0..n-1] be a balanced sequence
 \begin{itemize}
 	\item s[0..i] is balanced iff s[i+1..n-1] is balanced.	
 \end{itemize}
-
-\pagebreak
 
 When sequence is balanced, we can pairup open and closed brackets. This is done during the 2nd definition. When we are popping out the open bracket from stack(when closed br is encountered) we pair those two.\\
 

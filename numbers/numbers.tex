@@ -14,6 +14,8 @@
 	\item 'a' is multiple of $n_1$ and 'a' is multiple of $n_2$ iff 'a' is multiple of $LCM(n_1,n_2)$. 
 	\item The set of all integer combinations of a and b is precisely the set of all integer multiples of the GCD of a and b. \href{https://proofwiki.org/wiki/Set_of_Integer_Combinations_equals_Set_of_Multiples_of_GCD}{proof}
 	\item The above statement is generalized version of Bezout's identity.
+	\item $dp[i][j]$, number of subsets of length i whose gcd is j, then\\
+	$dp[i][j]={cnt_j\choose i}-\sum_{k=2}^{\infty}dp[i][k*j]$, where $cnt_j$ is number of elements divisible by j. This is a generalized version of simply finding number of subsets of gcd exactly == j(which is solved similarly but with 1-dim dp).
 \end{itemize}
 
 \section{Modulo}
@@ -21,6 +23,7 @@
 	\item If you want to calculate $a^b$ modulo p(prime) where b is very large ($b=100000^{100000}$) we can use Fermat's \textbf{little} theorem. As $a^{p-1}\equiv 1(mod p)$, $a^b\equiv a^{bmod(p-1)}(mod p)$.  
 	\item For prime p, and any number a relatively prime to p, a,2a,3a..p*a are all distinct modulo p.
 	\item But $a^1,a^2,\dotsc a^{p-1}$ are not distinct modulo p. (a=6, p=5)
+	\item $ab \bmod ac = a(b \bmod c)$.
 \end{itemize}
 
 \section{CRT}
@@ -38,7 +41,8 @@ For solving multiple equations combine first two equations in to one using above
 	\item Euler's phi function is multiplicative. \href{https://proofwiki.org/w/index.php?title=Euler_Phi_Function_is_Multiplicative&oldid=373969}{proof}.
 	\item using above we can calculate $\varphi(n) = n\cdot \prod_{p\mid n}\left(1 - \frac1p\right).$ where p's are primes.
 	\item Let any number k coprime to n then (k mod n) $\in \varphi(n)$.
-	\item A more generalized form $\varphi (mn) = \varphi (m) \varphi (n) \cdot \dfrac{d}{\varphi (d)}$.
+	\item A more generalized form $\varphi (mn) = \varphi (m) \varphi (n) \cdot \dfrac{d}{\varphi (d)}$. This is when m and n aren't necessarily co-prime.
 	\item if d\textbackslash n, the number of integers $k<=n$ and $GCD(k,n)=d$ are $\varphi(n/d)$.
+	\item a more general euler's theorem (which is inturn more general fermat's little theorem) $x^{n}\equiv x^{\phi(m)+[n \bmod \phi(m)]} \mod m$. This is when x and m aren't necessarily coprime.
 \end{itemize}
 \end{document}

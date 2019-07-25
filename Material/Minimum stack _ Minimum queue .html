@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class=" ya-page_js_yes"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- base href="https://cp-algorithms.com/" -->
+    <title>Minimum stack / Minimum queue  - Competitive Programming Algorithms</title>
+    <script async="" src="Minimum%20stack%20_%20Minimum%20queue%20_files/analytics.js"></script><script type="text/javascript" async="" charset="utf-8" src="Minimum%20stack%20_%20Minimum%20queue%20_files/all.js"></script><script src="Minimum%20stack%20_%20Minimum%20queue%20_files/jq.js"></script>
+    <script src="Minimum%20stack%20_%20Minimum%20queue%20_files/common.js"></script>
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" src="Minimum%20stack%20_%20Minimum%20queue%20_files/MathJax.js">
+    </script>
+    <link rel="stylesheet" href="Minimum%20stack%20_%20Minimum%20queue%20_files/common.css">
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="Minimum%20stack%20_%20Minimum%20queue%20_files/xcode.css">
+    <script src="Minimum%20stack%20_%20Minimum%20queue%20_files/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8">
+    <meta name="yandex-verification" content="f327630b02a1e115">
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">#ya-site-form0,#ya-site-form0 .ya-site-form__form,#ya-site-form0 .ya-site-form__input,#ya-site-form0 .ya-site-form__input-text,#ya-site-form0 .ya-site-form__submit,#ya-site-form0 .ya-site-form__search-precise{font-size:12px!important;color:#000!important}#ya-site-form0 .ya-site-form__form-form{display:block}#ya-site-form0 .ya-site-form__form-form,#ya-site-form0 .ya-site-form__input,#ya-site-form0 .ya-site-form__search-precise,#ya-site-form0 .ya-site-form__search-precise__radio,#ya-site-form0 .ya-site-form__gap,#ya-site-form0 .ya-site-form__gap-i,#ya-site-form0 .ya-site-form__logo-img{margin:0;padding:0}#ya-site-form0{margin:0!important;padding:0!important}#ya-site-form0 .ya-site-form__logo-wrap{width:65px;vertical-align:top;border-collapse:collapse}#ya-site-form0 .ya-site-form__logo{display:block;width:52px;margin:0;padding:0 6px 0 0;text-decoration:none}#ya-site-form0 .ya-site-form__logo-img{width:52px;height:21px;border:0!important}#ya-site-form0 .ya-site-form__search-wrap{border-collapse:collapse}#ya-site-form0 .ya-site-form__search{font-size:12px!important;width:100%}#ya-site-form0 .ya-site-form__search-input,#ya-site-form0 .ya-site-form__search-precise,{border:0}#ya-site-form0 .ya-site-form__search-input{padding:6px}#ya-site-form0 .ya-site-form__search-input-layout,#ya-site-form0 .ya-site-form__search-input-layout-l,#ya-site-form0 .ya-site-form__search-input-layout-r{font-size:12px!important;padding:0;vertical-align:middle;border:0;border-collapse:collapse}#ya-site-form0 .ya-site-form__search-input-layout,#ya-site-form0 .ya-site-form__search-input-layout-l{width:100%}#ya-site-form0 .ya-site-form__search-precise{padding:0 18px 5px 6px;text-align:left;vertical-align:top}#ya-site-form0 .ya-site-form__search-precise-i{white-space:nowrap}#ya-site-form0 .ya-site-form__search-precise__radio{width:auto;margin:0 .3em 0 0;vertical-align:middle;background:none}#ya-site-form0 .ya-site-form__search-precise__label{margin:0 .4em 0 0;padding:0;vertical-align:middle}#ya-site-form0 .ya-site-form__input-text{width:100%;margin:0!important;cursor:text;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background-color:#fff;border:1px solid #7f9db9;outline-style:none;-webkit-appearance:textfield}#ya-site-form0 .ya-site-form__input-text_type_hint{background-repeat:no-repeat;background-position:.2em 50%}#ya-site-form0 .ya-site-form__submit{display:block;width:auto;margin:0 0 0 5px}#ya-site-form0 .ya-site-form__arrow-wrap{overflow:hidden;width:30px;padding:0;vertical-align:middle}#ya-site-form0 .ya-site-form__arrow{position:relative}#ya-site-form0 .ya-site-form__arrow-a{position:absolute;top:50%;right:0;width:0;height:0;margin-top:-59px;border:solid transparent;border-width:59px 0 59px 30px;-moz-border-end-style:dotted}#ya-site-form0 .ya-site-form__wrap{width:100%;table-layout:fixed;border-collapse:collapse}#ya-site-form0 .ya-site-form__gap{border:0}#ya-site-form0 .ya-site-form__gap-i{width:9em}#ya-site-form0.ya-site-form_arrow_yes .ya-site-form__search-input{padding-right:0}#ya-site-form0.ya-site-form_logo_left .ya-site-form__logo{margin-top:4px;margin-left:5px}#ya-site-form0.ya-site-form_logo_top .ya-site-form__logo{display:block;margin:6px 0 0 6px}#ya-site-form0 .ya-site-form__submit_type_image{width:19px;height:15px;outline:none;cursor:pointer;border:0}#ya-site-form0 .ya-site-form__submit_type_image { background: url(https://site.yandex.net/v2.0/i/en/search.png) no-repeat }#ya-site-form0 .ya-site-form__input-text_type_hint { background-image:url(https://site.yandex.net/v2.0/i/en/yandex-hint-rb.png) }#ya-site-form0 .ya-site-form__form * { font-size: 12px !important }#ya-site-form0 .ya-site-form__form .ya-site-form__input-text { font-style: normal!important }#ya-site-form0 .ya-site-form__form .ya-site-form__input-text { font-weight: normal!important }#ya-site-form0 .ya-site-form__form .ya-site-form__input-text { color: #000000!important }#ya-site-form0 .ya-site-form__form .ya-site-form__input-text { border-color: #7f9db9!important }#ya-site-form0 .ya-site-form__form .ya-site-form__input-text:focus { border-color: #7f9db9!important }#ya-site-form0 .ya-site-form__form .ya-site-form__input-text { background-color: #ffffff!important }#ya-site-form0 .ya-site-form__search, #ya-site-form0 .ya-site-form__search td, #ya-site-form0 .yaform__precise-i { background-color: transparent !important }#ya-site-form0 .ya-site-form__search-precise__label { color:#000000 !important }#ya-site-form0 .ya-site-form__arrow-a { border-left-color: transparent }</style><link title="search e-maxx-eng" rel="search" type="application/opensearchdescription+xml" href="https://yandex.com/search/site/opensearch.xml?ShortName=search%20e-maxx-eng&amp;InputEncoding=utf-8&amp;Image=&amp;Url-results=https%3A%2F%2Fcp-algorithms.com%2Fsearch-results.html%3Fsearchid%3D2314495%26web%3D0%26text%3D%7BsearchTerms%7D&amp;Url-suggest=https%3A%2F%2Fsitesearch-suggest.yandex.ru%2Fv1%2Fsuggest%3F%26site%3D2314495%26lang%3Den%26part%3D%7BsearchTerms%7D&amp;Url-opensearchdescr=https%3A%2F%2Fyandex.com%2Fsearch%2Fsite%2Fopensearch.xml%3FShortName%3Dsearch%2520e-maxx-eng%26InputEncoding%3Dutf-8%26Image%3D%26Url-results%3Dhttps%253A%252F%252Fcp-algorithms.com%252Fsearch-results.html%253Fsearchid%253D2314495%2526web%253D0%2526text%253D%257BsearchTerms%257D%26Url-suggest%3Dhttps%253A%252F%252Fsitesearch-suggest.yandex.ru%252Fv1%252Fsuggest%253F%2526site%253D2314495%2526lang%253Den%2526part%253D%257BsearchTerms%257D"><style type="text/css">#ya-site-form0 .ya-site-suggest{position:relative;margin:0}#ya-site-form0 .ya-site-suggest-popup{position:absolute;width:100%}#ya-site-form0 .ya-site-suggest__opera-gap{position:absolute;height:25em;border:1px solid transparent}#ya-site-form0 .ya-site-suggest-list{position:absolute;z-index:9999;overflow:hidden;min-width:25em;width:100%;margin-top:-1px;border-collapse:separate;-webkit-box-shadow:0 1px 7px #9a9a9a;-moz-box-shadow:0 1px 7px #9a9a9a;box-shadow:0 1px 7px #9a9a9a;border:1px solid #dedede;border-color:rgba(154,154,154,0.5);border-top-color:rgba(154,154,154,0.4);border-bottom-color:rgba(154,154,154,0.6)}#ya-site-form0 .ya-site-suggest-list{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}#ya-site-form0 .ya-site-suggest__iframe{position:absolute;z-index:-1;min-width:25em;width:100%;height:100%;background:#fff}#ya-site-form0 .ya-site-suggest-items{font-size:16px;min-width:25em;width:100%;margin:0;padding:0 1px 0 0;list-style:none}#ya-site-form0 .ya-site-suggest-items li{margin:0;padding:0;line-height:normal}#ya-site-form0 .ya-site-suggest-elem{display:block;padding:.25em .3em;cursor:pointer;background:url()}#ya-site-form0 a.ya-site-suggest-elem:link,#ya-site-form0 a.ya-site-suggest-elem:visited{text-decoration:none}html body #ya-site-form0 .ya-site-suggest-elem:link,html body #ya-site-form0 .ya-site-suggest-elem-link{color:#000!important}#ya-site-form0 .ya-site-suggest-elem:hover,html body #ya-site-form0 .ya-site-suggest-elem_state_hover{background:#fef6d7}#ya-site-form0 .ya-site-suggest-elem_nav:hover,#ya-site-form0 .ya-site-suggest-elem_translate:hover{text-decoration:none;color:#000!important}#ya-site-form0 .ya-site-suggest-elem_nav .ya-site-suggest__link{text-decoration:underline;color:#1a3dc1}#ya-site-form0 .ya-site-suggest-elem_translate .ya-site-suggest__link{text-decoration:underline;color:#000}#ya-site-form0 .ya-site-suggest-elem .ya-site-suggest__info{white-space:nowrap;color:#666}#ya-site-form0 .ya-site-suggest-elem_selected{background:#fdedaf}#ya-site-form0 .ya-site-suggest__fact{color:#555}#ya-site-form0 .ya-site-suggest__highlight{font-weight:bold}</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.1') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.1') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.1') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body data-v="2019-07-24:3154/1408 2019-07-23:0/0 2019-07-22:0/0 2019-07-21:0/0 2019-07-20:0/0 2019-07-19:0/0 2019-07-18:0/0"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="https://cp-algorithms.com/">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/data_structures/stack_queue_modification.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_bg_transparent ya-site-form_logo_hint ya-site-form_inited_yes" id="ya-site-form0"><div class="ya-site-form__form"><table class="ya-site-form__wrap" cellspacing="0" cellpadding="0"><tbody><tr><td class="ya-site-form__search-wrap"><table class="ya-site-form__search" cellspacing="0" cellpadding="0"><tbody><tr><td class="ya-site-form__search-input"><table class="ya-site-form__search-input-layout"><tbody><tr><td class="ya-site-form__search-input-layout-l"><div class="ya-site-form__input"><input name="text" type="search" class="ya-site-form__input-text ya-site-form__input-text_type_hint" autocomplete="off"><div class="ya-site-suggest"><div class="ya-site-suggest-popup" style="display: none;"><i class="ya-site-suggest__opera-gap"></i><div class="ya-site-suggest-list"><div class="ya-site-suggest__iframe"></div><ul class="ya-site-suggest-items"></ul></div></div></div></div></td><td class="ya-site-form__search-input-layout-r"><input class="ya-site-form__submit" type="button" value="Search"></td></tr></tbody></table></td></tr><tr><td class="ya-site-form__gap"><div class="ya-site-form__gap-i"></div></td></tr></tbody></table></td></tr></tbody></table></div></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+<h1>Minimum stack / Minimum queue</h1><div id="toc"><strong>Table of Contents</strong><br><div class="toc-H2"><a href="https://cp-algorithms.com/data_structures/stack_queue_modification.html#toc-tgt-0">Stack modification</a><a></a></div><div class="toc-H2"><a href="https://cp-algorithms.com/data_structures/stack_queue_modification.html#toc-tgt-1">Queue modification (method 1)</a><a></a></div><div class="toc-H2"><a href="https://cp-algorithms.com/data_structures/stack_queue_modification.html#toc-tgt-2">Queue modification (method 2)</a><a></a></div><div class="toc-H2"><a href="https://cp-algorithms.com/data_structures/stack_queue_modification.html#toc-tgt-3">Queue modification (method 3)</a><a></a></div><div class="toc-H2"><a href="https://cp-algorithms.com/data_structures/stack_queue_modification.html#toc-tgt-4">Finding the minimum for all subarrays of fixed length</a><a></a></div></div>
+
+<p>In this article we will consider three problems: 
+first we will modify a stack in a way that allows up to find the smallest element of the stack in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 2.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.019em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1001.92em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-6" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">O(1)</script>,
+ then we will do the same thing with a queue, and finally we will use 
+these data structures to find the minimum in all subarrays of a fixed 
+length in an array in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-7" style="width: 2.791em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.115em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1002.02em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-8"><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-10" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-2">O(n)</script></p>
+
+<h2 id="toc-tgt-0">Stack modification</h2>
+
+<p>We want to modify the stack data structure in such a way, that it possible to find the smallest element in the stack in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-13" style="width: 2.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.019em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1001.92em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-14"><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-16" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-17" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-18" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-3">O(1)</script> time, while maintaining the same asymptotic behavior for adding and removing elements from the stack.
+Quick reminder, on a stack we only add and remove elements on one end.</p>
+
+<p>To do this, we will no only store the elements in the stack, but we 
+will store them in pairs: the element itself and the minimum in the 
+stack starting from this element and below.</p>
+
+<pre><code class="cpp hljs"><span class="hljs-stl_container"><span class="hljs-built_in">stack</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;</span>&gt; st;
+</code></pre>
+
+<p>It is clear that finding the minimum in the whole stack consists only of looking at the value <code>stack.top().second</code>.</p>
+
+<p>It is also obvious that adding or removing a new element to the stack can be done in constant time.</p>
+
+<p>Implementation:</p>
+
+<ul>
+<li>Adding an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">int</span> new_min = st.empty() ? new_elem : min(new_elem, st.top().second);
+st.push({new_elem, new_min});
+</code></pre>
+
+<ul>
+<li>Removing an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">int</span> removed_element = st.top().first;
+st.pop();
+</code></pre>
+
+<ul>
+<li>Finding the minimum:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">int</span> minimum = st.top().second;
+</code></pre>
+
+<h2 id="toc-tgt-1">Queue modification (method 1)</h2>
+
+<p>Now we want to achieve the same operations with a queue, i.e. we want to add elements at the end and remove them from the front.</p>
+
+<p>Here we consider a simple method for modifying a queue.
+It has a big disadvantage though, because the modified queue will actually not store all elements.</p>
+
+<p>The key idea is to only store the items in the queue that are needed 
+to determine the minimum.
+Namely we will keep the queue in nondecreasing order (i.e. the smallest 
+value will be stored in the head), and of course not in any arbitrary 
+way, the actual minimum has to be always contained in the queue.
+This way the smallest element will always be in the head of the queue.
+Before adding a new element to the queue, it is enough to make a "cut":
+we will remove all trailing elements of the queue that are larger than 
+the new element, and afterwards add the new element to the queue. 
+This way we don't break the order of the queue, and we will also not 
+loose the current element if it is at any subsequent step the minimum. 
+All the elements that we removed can never be a minimum itself, so this 
+operation is allowed.
+When we want to extract an element from the head, it actually might not 
+be there (because we removed it previously while adding a smaller 
+element). 
+Therefore when deleting an element from a queue we need to know the 
+value of the element.
+If the head of the queue has the same value, we can safely remove it, 
+otherwise we do nothing.</p>
+
+<p>Consider the implementations of the above operations:</p>
+
+<pre><code class="cpp hljs"><span class="hljs-stl_container"><span class="hljs-built_in">deque</span>&lt;<span class="hljs-keyword">int</span>&gt;</span> q;
+</code></pre>
+
+<ul>
+<li>Finding the minimum:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">int</span> minimum = q.front();
+</code></pre>
+
+<ul>
+<li>Adding an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">while</span> (!q.empty() &amp;&amp; q.back() &gt; new_element)
+    q.pop_back();
+q.push_back(new_element);
+</code></pre>
+
+<ul>
+<li>Removing an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">if</span> (!q.empty() &amp;&amp; q.front() == remove_element)
+    q.pop_front();
+</code></pre>
+
+<p>It is clear that on average all these operation only take <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-19" style="width: 2.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.019em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1001.92em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-20"><span class="mi" id="MathJax-Span-21" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-22" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-23" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-24" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-4">O(1)</script> time (because every element can only be pushed and popped once).</p>
+
+<h2 id="toc-tgt-2">Queue modification (method 2)</h2>
+
+<p>This is a modification of method 1.
+We want to be able to remove elements without knowing which element we have to remove.
+We can accomplish that by storing the index for each element in the queue.
+And we also remember how many elements we already have added and removed.</p>
+
+<pre><code class="cpp hljs"><span class="hljs-stl_container"><span class="hljs-built_in">deque</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;</span>&gt; q;
+<span class="hljs-keyword">int</span> cnt_added = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> cnt_removed = <span class="hljs-number">0</span>;
+</code></pre>
+
+<ul>
+<li>Finding the minimum:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">int</span> minimum = q.front().first;
+</code></pre>
+
+<ul>
+<li>Adding an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">while</span> (!q.empty() &amp;&amp; q.back().first &gt; new_element)
+    q.pop_back();
+q.push_back({new_element, cnt_added});
+cnt_added++;
+</code></pre>
+
+<ul>
+<li>Removing an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">if</span> (!q.empty() &amp;&amp; q.front().second == cnt_removed) 
+    q.pop_front();
+cnt_removed++;
+</code></pre>
+
+<h2 id="toc-tgt-3">Queue modification (method 3)</h2>
+
+<p>Here we consider another way of modifying a queue to find the minimum in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-25" style="width: 2.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.019em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1001.92em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-26"><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-28" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-29" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-30" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-5">O(1)</script>.
+This way is somewhat more complicated to implement, but this time we actually store all elements.
+And we also can remove an element from the front without knowing its value.</p>
+
+<p>The idea is to reduce the problem to the problem of stacks, which was already solved by us.
+So we only need to learn how to simulate a queue using two stacks.</p>
+
+<p>We make two stacks, <code>s1</code> and <code>s2</code>. 
+Of course these stack will be of the modified form, so that we can find the minimum in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-31" style="width: 2.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.019em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1001.92em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-32"><span class="mi" id="MathJax-Span-33" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-34" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-35" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-36" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-6">O(1)</script>. 
+We will add new elements to the stack <code>s1</code>, and remove elements from the stack <code>s2</code>.
+If at any time the stack <code>s2</code> is empty, we move all elements from <code>s1</code> to <code>s2</code> (which essentially reverses the order of those elements).
+Finally finding the minimum in a queue involves just finding the minimum of both stacks.</p>
+
+<p>Thus we perform all operations in <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-37" style="width: 2.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.019em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1001.92em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-38"><span class="mi" id="MathJax-Span-39" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-40" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-41" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-42" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-7">O(1)</script> on average (each element will be once added to stack <code>s1</code>, once transferred to <code>s2</code>, and once popped from <code>s2</code>)</p>
+
+<p>Implementation:</p>
+
+<pre><code class="cpp hljs"><span class="hljs-stl_container"><span class="hljs-built_in">stack</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;</span>&gt; s1, s2;
+</code></pre>
+
+<ul>
+<li>Finding the minimum:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">if</span> (s1.empty() || s2.empty()) 
+    minimum = s1.empty() ? s2.top().second : s1.top().second;
+<span class="hljs-keyword">else</span>
+    minimum = min(s1.top().second, s2.top().second);
+</code></pre>
+
+<ul>
+<li>Add element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">int</span> minimum = s1.empty() ? new_element : min(new_element, s1.top().second);
+s1.push({new_element, minimum});
+</code></pre>
+
+<ul>
+<li>Removing an element:</li>
+</ul>
+
+<pre><code class="cpp hljs"><span class="hljs-keyword">if</span> (s2.empty()) {
+    <span class="hljs-keyword">while</span> (!s1.empty()) {
+        <span class="hljs-keyword">int</span> element = s1.top().first;
+        s1.pop();
+        <span class="hljs-keyword">int</span> minimum = s2.empty() ? element : min(element, s2.top().second);
+        s2.push({element, minimum});
+    }
+}
+<span class="hljs-keyword">int</span> remove_element = s2.top().first;
+s2.pop();
+</code></pre>
+
+<h2 id="toc-tgt-4">Finding the minimum for all subarrays of fixed length</h2>
+
+<p>Suppose we are given an array <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-43" style="width: 1.012em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.769em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.592em, 1000.75em, 2.596em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-44"><span class="mi" id="MathJax-Span-45" style="font-family: MathJax_Math; font-style: italic;">A</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.063em; border-left: 0px solid; width: 0px; height: 1.056em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></span></span><script type="math/tex" id="MathJax-Element-8">A</script> of length <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-46" style="width: 1.204em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.913em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.625em, 1000.91em, 2.596em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-47"><span class="mi" id="MathJax-Span-48" style="font-family: MathJax_Math; font-style: italic;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.085em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.063em; border-left: 0px solid; width: 0px; height: 1.013em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math></span></span><script type="math/tex" id="MathJax-Element-9">N</script> and a given <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-49" style="width: 4.281em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.269em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.625em, 1003.27em, 2.734em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-50"><span class="mi" id="MathJax-Span-51" style="font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.081em;"></span></span><span class="mo" id="MathJax-Span-52" style="font-family: MathJax_Main; padding-left: 0.278em;">≤</span><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.085em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.242em; border-left: 0px solid; width: 0px; height: 1.192em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi><mo>≤</mo><mi>N</mi></math></span></span><script type="math/tex" id="MathJax-Element-10">M \le N</script>.
+We have to find the minimum of each subarray of length <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-54" style="width: 1.397em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.058em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.625em, 1001.06em, 2.596em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-55"><span class="mi" id="MathJax-Span-56" style="font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.081em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.063em; border-left: 0px solid; width: 0px; height: 1.013em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math></span></span><script type="math/tex" id="MathJax-Element-11">M</script> in this array, i.e. we have to find:
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;munder&gt;&lt;mo movablelimits=&quot;true&quot; form=&quot;prefix&quot;&gt;min&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;munder&gt;&lt;mo movablelimits=&quot;true&quot; form=&quot;prefix&quot;&gt;min&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;munder&gt;&lt;mo movablelimits=&quot;true&quot; form=&quot;prefix&quot;&gt;min&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mtext&gt;&amp;#xA0;&lt;/mtext&gt;&lt;mo&gt;&amp;#x2026;&lt;/mo&gt;&lt;mtext&gt;&amp;#xA0;&lt;/mtext&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;munder&gt;&lt;mo movablelimits=&quot;true&quot; form=&quot;prefix&quot;&gt;min&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;N&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-57" style="width: 32.647em; display: inline-block;"><span style="display: inline-block; position: relative; width: 25.096em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1024.98em, 3.443em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-58"><span class="munderover" id="MathJax-Span-59"><span style="display: inline-block; position: relative; width: 3.345em; height: 0px;"><span style="position: absolute; clip: rect(3.177em, 1001.65em, 4.135em, -1000em); top: -3.99em; left: 0.839em;"><span class="mo" id="MathJax-Span-60" style="font-family: MathJax_Main;">min</span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span><span style="position: absolute; clip: rect(3.363em, 1003.29em, 4.332em, -1000em); top: -3.341em; left: 0em;"><span class="texatom" id="MathJax-Span-61"><span class="mrow" id="MathJax-Span-62"><span class="mn" id="MathJax-Span-63" style="font-size: 70.7%; font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-64" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-65" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-66" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-67" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-68" style="font-size: 70.7%; font-family: MathJax_Main;">−</span><span class="mn" id="MathJax-Span-69" style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span class="mi" id="MathJax-Span-70" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;">A</span><span class="mo" id="MathJax-Span-71" style="font-family: MathJax_Main;">[</span><span class="mi" id="MathJax-Span-72" style="font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-73" style="font-family: MathJax_Main;">]</span><span class="mo" id="MathJax-Span-74" style="font-family: MathJax_Main;">,</span><span class="munderover" id="MathJax-Span-75" style="padding-left: 0.167em;"><span style="display: inline-block; position: relative; width: 2.441em; height: 0px;"><span style="position: absolute; clip: rect(3.177em, 1001.65em, 4.135em, -1000em); top: -3.99em; left: 0.387em;"><span class="mo" id="MathJax-Span-76" style="font-family: MathJax_Main;">min</span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span><span style="position: absolute; clip: rect(3.363em, 1002.44em, 4.332em, -1000em); top: -3.341em; left: 0em;"><span class="texatom" id="MathJax-Span-77"><span class="mrow" id="MathJax-Span-78"><span class="mn" id="MathJax-Span-79" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-80" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-81" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-82" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-83" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span class="mi" id="MathJax-Span-84" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;">A</span><span class="mo" id="MathJax-Span-85" style="font-family: MathJax_Main;">[</span><span class="mi" id="MathJax-Span-86" style="font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-87" style="font-family: MathJax_Main;">]</span><span class="mo" id="MathJax-Span-88" style="font-family: MathJax_Main;">,</span><span class="munderover" id="MathJax-Span-89" style="padding-left: 0.167em;"><span style="display: inline-block; position: relative; width: 3.345em; height: 0px;"><span style="position: absolute; clip: rect(3.177em, 1001.65em, 4.135em, -1000em); top: -3.99em; left: 0.839em;"><span class="mo" id="MathJax-Span-90" style="font-family: MathJax_Main;">min</span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span><span style="position: absolute; clip: rect(3.363em, 1003.29em, 4.332em, -1000em); top: -3.341em; left: 0em;"><span class="texatom" id="MathJax-Span-91"><span class="mrow" id="MathJax-Span-92"><span class="mn" id="MathJax-Span-93" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-94" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-95" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-96" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-98" style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span class="mn" id="MathJax-Span-99" style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span class="mi" id="MathJax-Span-100" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;">A</span><span class="mo" id="MathJax-Span-101" style="font-family: MathJax_Main;">[</span><span class="mi" id="MathJax-Span-102" style="font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-103" style="font-family: MathJax_Main;">]</span><span class="mo" id="MathJax-Span-104" style="font-family: MathJax_Main;">,</span><span class="mtext" id="MathJax-Span-105" style="font-family: MathJax_Main; padding-left: 0.167em;">&nbsp;</span><span class="mo" id="MathJax-Span-106" style="font-family: MathJax_Main; padding-left: 0.167em;">…</span><span class="mtext" id="MathJax-Span-107" style="font-family: MathJax_Main; padding-left: 0.167em;">&nbsp;</span><span class="mo" id="MathJax-Span-108" style="font-family: MathJax_Main;">,</span><span class="munderover" id="MathJax-Span-109" style="padding-left: 0.167em;"><span style="display: inline-block; position: relative; width: 4.797em; height: 0px;"><span style="position: absolute; clip: rect(3.177em, 1001.65em, 4.135em, -1000em); top: -3.99em; left: 1.565em;"><span class="mo" id="MathJax-Span-110" style="font-family: MathJax_Main;">min</span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span><span style="position: absolute; clip: rect(3.363em, 1004.75em, 4.332em, -1000em); top: -3.341em; left: 0em;"><span class="texatom" id="MathJax-Span-111"><span class="mrow" id="MathJax-Span-112"><span class="mi" id="MathJax-Span-113" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mo" id="MathJax-Span-114" style="font-size: 70.7%; font-family: MathJax_Main;">−</span><span class="mi" id="MathJax-Span-115" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-116" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-117" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-118" style="font-size: 70.7%; font-family: MathJax_Main;">≤</span><span class="mi" id="MathJax-Span-119" style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span class="mo" id="MathJax-Span-120" style="font-size: 70.7%; font-family: MathJax_Main;">−</span><span class="mn" id="MathJax-Span-121" style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span style="display: inline-block; width: 0px; height: 3.99em;"></span></span></span></span><span class="mi" id="MathJax-Span-122" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;">A</span><span class="mo" id="MathJax-Span-123" style="font-family: MathJax_Main;">[</span><span class="mi" id="MathJax-Span-124" style="font-family: MathJax_Math; font-style: italic;">i</span><span class="mo" id="MathJax-Span-125" style="font-family: MathJax_Main;">]</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -1.164em; border-left: 0px solid; width: 0px; height: 2.201em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><munder><mo movablelimits="true" form="prefix">min</mo><mrow class="MJX-TeXAtom-ORD"><mn>0</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>M</mi><mo>−</mo><mn>1</mn></mrow></munder><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>,</mo><munder><mo movablelimits="true" form="prefix">min</mo><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>M</mi></mrow></munder><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>,</mo><munder><mo movablelimits="true" form="prefix">min</mo><mrow class="MJX-TeXAtom-ORD"><mn>2</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>M</mi><mo>+</mo><mn>1</mn></mrow></munder><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>,</mo><mtext>&nbsp;</mtext><mo>…</mo><mtext>&nbsp;</mtext><mo>,</mo><munder><mo movablelimits="true" form="prefix">min</mo><mrow class="MJX-TeXAtom-ORD"><mi>N</mi><mo>−</mo><mi>M</mi><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>N</mi><mo>−</mo><mn>1</mn></mrow></munder><mi>A</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-12">\min_{0 \le i \le M-1} A[i], \min_{1 \le i \le M} A[i], \min_{2 \le i \le M+1} A[i],~\dots~, \min_{N-M \le i \le N-1} A[i]</script></p>
+
+<p>We have to solve this problem in linear time, i.e. <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-126" style="width: 2.791em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.115em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1002.02em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-127"><span class="mi" id="MathJax-Span-128" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-129" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-130" style="font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-131" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-13">O(n)</script>.</p>
+
+<p>We can use any of the three modified queues to solve the problem.
+The solutions should be clear:
+we add the first <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-132" style="width: 1.397em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.058em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.625em, 1001.06em, 2.596em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-133"><span class="mi" id="MathJax-Span-134" style="font-family: MathJax_Math; font-style: italic;">M<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.081em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.063em; border-left: 0px solid; width: 0px; height: 1.013em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math></span></span><script type="math/tex" id="MathJax-Element-14">M</script>
+ element of the array, find and output its minimum, then add the next 
+element to the queue and remove the first element of the array, find and
+ output its minimum, etc. 
+Since all operations with the queue are performed in constant time on 
+average, the complexity of the whole algorithm will be <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-135" style="width: 2.791em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.115em; height: 0px; font-size: 130%;"><span style="position: absolute; clip: rect(1.558em, 1002.02em, 2.846em, -1000em); top: -2.452em; left: 0em;"><span class="mrow" id="MathJax-Span-136"><span class="mi" id="MathJax-Span-137" style="font-family: MathJax_Math; font-style: italic;">O</span><span class="mo" id="MathJax-Span-138" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-139" style="font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-140" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.452em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.388em; border-left: 0px solid; width: 0px; height: 1.425em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-15">O(n)</script>.</p>
+
+    <div id="footer">
+    (c) 2014-2019 translation by <a href="http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    <span style="float: right; cursor: pointer;">24:3154/1408</span></div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Main, sans-serif;"></div></div></body></html>
