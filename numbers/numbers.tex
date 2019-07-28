@@ -12,10 +12,14 @@
 	\href{./Material/divergent series proof.pdf}{Proof link}
 	\item the factors of any number are quite smaller compared to the  number. There doesn't exist a pair of distinct factors whose sum is $\geq$ the actual number.
 	\item 'a' is multiple of $n_1$ and 'a' is multiple of $n_2$ iff 'a' is multiple of $LCM(n_1,n_2)$. 
+	\item similarly 'd' is divisor of $n_1$ and 'd' is divisor of $n_2$ iff 'd' is divisor of $GCD(n_1,n_2)$.
 	\item The set of all integer combinations of a and b is precisely the set of all integer multiples of the GCD of a and b. \href{https://proofwiki.org/wiki/Set_of_Integer_Combinations_equals_Set_of_Multiples_of_GCD}{proof}
 	\item The above statement is generalized version of Bezout's identity.
 	\item $dp[i][j]$, number of subsets of length i whose gcd is j, then\\
 	$dp[i][j]={cnt_j\choose i}-\sum_{k=2}^{\infty}dp[i][k*j]$, where $cnt_j$ is number of elements divisible by j. This is a generalized version of simply finding number of subsets of gcd exactly == j(which is solved similarly but with 1-dim dp).
+	\item $GCD(a_l,a_{l+1},..a_r) = GCD(a_l,a_{l+1}-a_l,a_{l+2}-a_{l+1},..,a_r-a_{r-1})$
+	\item Range queries for GCD with a single update is straight forward. But for range update, we keep two segment trees, one to find a single element with the range update, one over difference between adjacent elements to get GCD over range of difference array. As for difference array only two elements change with range update(update is addition). We answer in $O(lgn)$ using above formula.
+	\item if d is gcd of a list of numbers. Then d divides thier sum.
 \end{itemize}
 
 \section{Modulo}
