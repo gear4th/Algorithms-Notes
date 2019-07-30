@@ -10,6 +10,14 @@
 	\item As the above operations are theoretically possible for a balanced BST, we use policy data structure to support those two additional operations along with normal set operations. \href{https://codeforces.com/blog/entry/11080}{Blog link}
 	\item But for using the above structure as a multiset, there is no easy way to do it. We will use a shortcut by inserting pair (value, time of insertion) to distinguish equal elements. And do operations around that.
 	\item \texttt{\_\_gcd(x,0)} doesn't work in g++, even though its mathematically defined.
+	\item While using two pointers having the second pointer ('j') pointing to the minimum index such that [i,j) subarray satisfies the condition eases the code most of the times. (instead of [i,j]).
+	\item Use mt19937 instead of rand().(due to low max value, and periodicity).
+	\begin{lstlisting}
+		mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+		int RandomOutput = rng(); \\ generate a random number.
+		shuffle(a.begin(),a.end(),rng); \\ shuffle array a.
+	\end{lstlisting}
+	\item when generating random trees to test your solution. Donot generate bigger size trees because edge cases will be missed(Probability that the tree will be a line is almost zero for bigger size).Similarly for the arrays too.
 \end{itemize}
 
 \end{document}

@@ -8,7 +8,9 @@
 	\item There are r boxes in a row and n identical balls. Find number of different ways we can distribute balls among boxes.\\
 	$\Comb{n+r-1}{r-1}$
 	\item In problems, to convert A to B using minimum operations. Looking at the final operation may help.
-	
+	\item When trying to solve non-linear recurrences using matrix expo.
+	$f_i = f_{i - 1} + 2i^2 + 5$. The left column vectors should be
+	$\begin{pmatrix} f_i\\ i^2\\ i\\ 1\end{pmatrix}$ and $\begin{pmatrix} f_{i-1}\\ (i-1)^2\\ i-1\\ 1\end{pmatrix}$ otherwise the matrices wouldn't be same and we cannot combine the equations.
 \end{itemize}
 \section{Probability}
 \subsection{Randomized algorithms}

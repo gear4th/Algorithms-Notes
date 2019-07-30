@@ -72,7 +72,9 @@ Lazy segment tree update template
 
 Store the segprop's and lazy updates in 4*N sized array.\\
 
-We can even store entire subsegment's in each node. The memory is only $O(nlgn)$. 
+We can even store entire subsegment's in each node. The memory is only $O(nlgn)$.\\
+
+If there are updates of type "change an element to x". Then to find that element now, we only need to consider last update(of above type).
 
 \section{Permutation}
 \begin{itemize}
