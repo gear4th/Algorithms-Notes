@@ -35,9 +35,8 @@ The pairing can also be done like this. For open bracket at i, find the minimum 
 
 Let ith and jth index (i$<$j) are paired.
 \begin{itemize}
-	\item s[i..k] $i<k<j$ is not balanced.
 	\item If $i<l<j$ then the partner of l (named as r), $i<r<j$. \\
-	Proof: We know $sum[i..l-1]>0 => sum[l..j]<0$ since $sum[l..l] = 0$ there exists $r<j$ S.t $sum[l..r]=0$. We used the property that $sum[i..j]$ is continous over j.
+	Proof: We know $sum[i..l-1]>0 => sum[l..j]<0$ since $sum[l..l] = 1$ there exists $r<j$ S.t $sum[l..r]=0$. We used the property that $sum[i..j]$ is continous over j.
 \end{itemize} 
 
 \end{document}

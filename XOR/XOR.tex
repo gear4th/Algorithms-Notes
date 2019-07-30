@@ -10,7 +10,7 @@ Different techniques to solve problems on XOR
 	\item Bit Trie.
 	\item Solving for each individual bit and combining them at the end.
 	\item Using Lexicographic property. If the most significant bit in binary form a number is 1 and the other number has 0 then first number is greater (no matter what the other bits are).
-	\item In problems concerning XOR converting the array into prefix array can be useful.
+	\item In problems concerning XOR over subarrays converting the array into prefix array can be useful.
 	\item In tougher problems, divide and conquer is also used (i.e solve the problem for the numbers with 0 at considered bit, and solve for numbers with 1 at considered bit and combine them for the answer).\\
 	\href{https://www.codechef.com/MARCH12/problems/XOR/}{Problem link}
 	\item Gaussian elimination is used to find subset with maximum XOR.
@@ -20,7 +20,7 @@ Different techniques to solve problems on XOR
 Some tricks in solving XOR problems
 \begin{itemize}
 	\item $4k\oplus(4k+1)\oplus(4k+2)\oplus(4k+3)=0$ (used in finding XOR of numbers from 1..1e18)
-	\item If $a\oplus b=0$ and $b\neq c$ $\implies$ $c\oplus b\neq0$. This trick is mostly used in number theory to prove theorems on nim.
+	\item If $a\oplus b=0$ and $b\neq c$ $\implies$ $a\oplus c\neq0$. This trick is mostly used in number theory to prove theorems on nim.
 	\item If the array is sorted, all the elements with the same first x bits will be contigous $\forall$x.
 	\item $a+b=a\oplus b + 2*(a\And b)$
 \end{itemize}
@@ -40,7 +40,7 @@ We deal with games which are two player, extensive, finite, perfect info, impart
 \textbf{Game Tree} : A tree where nodes are all the states and edges are possible moves with root as starting state.\\
 \textbf{Strategy} : For a player, A strategy is a complete algorithm for playing the game, telling a player what to do for every possible situation(state) throughout the game. (i.e for every state possible, a single move is associated with it).\\
 \textbf{payoff (reward)} : In the game tree, we define payoff's for each players at every terminal node.(for example it may simply state who won i.e $payoff_{a}=inf, payoff_{b}=-inf$ if player a wins at that terminal node).\\
-In zerosum games $payoff_{a} = payoff_{b}$ at every terminal node.
+In zerosum games $payoff_{b} = -payoff_{a}$ at every terminal node.
 
 \textbf{Payoff function}: It takes strategies of players as input and outputs payoff's for both the players. It just outputs the payoffs of the terminal node at which game ends when actually played.(Since strategies are known we know how game will play out).
 

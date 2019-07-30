@@ -5,13 +5,15 @@
 \chapter{Arrays}
 \begin{itemize}
 	\item When we are asked to count number of pairs that satisfy a specific condition in an array. You should first try to rearrange the equation to get all the $i^{th}$ index terms to left side and $j^{th}$ index terms to right side. This will help us reduce $O(n^2)$ to $O(n)$.
+	\item Let p be an array of distinct elements and $next_{i}$ be the smallest $j>i$ s.t $p[j]>p[i]$. Then when we draw edges(curves) from $i -> next_{i}$ on top of the array then no two edges intersect. (i.e the condition $i<j<next_{i}<next_{j}$ is never satisfied for any pair of indices i,j).
 \end{itemize}
 
 \begin{itemize}
 	\item There are 3 types(tentative) of sqrt decomp I know.
 	\begin{itemize}
 		\item MO's algorithm(offline algo) : When there is no query of update form then we can take all the queries and sort them in a certain way to make naive computation faster.
-		\item (online algo)Divide the array in to blocks each of size ($\sqrt{n}$) and process both kind of queries in O($\sqrt{n}$) each.
+		\item (online algo)Divide the array in to blocks each of size ($\sqrt{n}$) and process both kind of queries in O($\sqrt{n}$) each.\\
+		When there are updates with addition or deletion of elements.Simply add the element in to the corresponding block, which increases it's size by 1. After each $\sqrt{q}$ updates, preprocess the array again(As the new blocks doesn't maintain the $\sqrt{n}$ size anymore).
 		\item (online algo) Consider $\sqrt{q}$ operations at a time. Since there can be atmost $O(\sqrt{q})$ update operations. The array will be changed at atmost $\sqrt{q}$ indices hence if we find a way to answer the query operations (in this $\sqrt{q}$ block) with some preprocessing each in $O(\sqrt{q})$.\\
 		 (Example. Find answer for this query without considering any updates in $O(1 \: or \: lgn)$ and update this answer according to changed indices in this range(which are only $\sqrt{q}$ in number). The time complexity of each block will be $O(q)$ hence total complexity will be $O(q\sqrt{q})$.(PreProcessing is done for each block seperately just before considering the block). \href{https://codeforces.com/problemset/problem/785/E}{Example Problem Link}.
 	\end{itemize}
@@ -27,7 +29,7 @@ We can have pointers to the nearest equal, less or greater elements (either to l
 \end{itemize}
 
 Consider a divide and conquer algorithm with time complexity recurrence.
-$T(n)=T(e_1)+T(e_2)+e_1 (e1<=e2 \wedge e1+e2=n)$.\\ 
+$T(n)=T(e_1)+T(e_2)+e_1 (e1\leq e2 \wedge e1+e2=n)$.\\ 
 The closed form is $T(n) = O(nlgn)$.\\
 This can be proved using induction or realising the fact the every element is included in the $e_1$ term atmost lgn times.\\
 
@@ -49,7 +51,6 @@ For the lazy segment tree to be valid it needs to satisfy this below additional 
 	\item req 2 : If there are two or more updates on the same segment, we need to be able to combine them in to a single update.
 	\item req 3 : If there is an update for a segment(whole segment). We need to be able to update segprop for the segment in $O(1)$.
 \end{itemize}
-\pagebreak
 Lazy segment tree update template
 \begin{lstlisting}
 	void update(int si ,int ss, int se, int l, int r, int val){
@@ -76,7 +77,6 @@ We can even store entire subsegment's in each node. The memory is only $O(nlgn)$
 \section{Permutation}
 \begin{itemize}
 	\item If we have a directed graph of n nodes, and connect ith to jth iff $p[i]=j$; then we get a bunch of disjoint cycles.
-	\item Let p be permutation and $next_{i}$ be the smallest $j>i$ s.t $p[j]>p[i]$. Then when we draw edges(curves) from $i -> next_{i}$ on top of the array then no two edges intersect. (i.e the condition $i<j<next_{i}<next_{j}$ is never satisfied for any pair of indices i,j).
 	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.) 
 \end{itemize}
 

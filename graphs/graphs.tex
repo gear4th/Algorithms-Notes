@@ -7,13 +7,12 @@
 In OJ's most of the problems concerning MST's can be solved with Kruskal's algorithm.(others are Prim's and Boruvka's).\\ 
 
 There are certain kind of problems where number of edges are huge. They are not given in the input but told to us using certain properties of vertices. (Example. There are n nodes and each has a value $a_{i}$. There is an edge between i and j iff $a[i]\oplus a[j]==k$).\\
+\begin{itemize}
+	\item Sometimes these problems can be solved by adding some more nodes to the graph and connecting the real vertices with new vertices. The property for the graph(ex.number of components) asked in the question may remain same for the new graph and now edges may be less.
+\end{itemize}
 
 Given a graph with both directed and undirected edges. If there are no cycles using only directed edges, we can always direct all undirected edges without forming a cycle.\href{./Material/Making undirected edges direct.pdf}{proof}.\\
 Normally problems like above involve eulerian cycle and direct edges according to that.
-
-\begin{itemize}
-	\item Sometimes these problems can be solved by adding some more nodes to the graph and connection the real vertices with new vertices. The property for the graph(ex.number of components) asked in the question may remain same for the new graph and now edges may be less.
-\end{itemize}
 
 \section{Trees}
 
