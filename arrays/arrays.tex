@@ -20,6 +20,12 @@
 	\item Queries of rectangles with fixed sizes can be done in $O(mn)$ pre and $O(1)$ query.
 \end{itemize}
 
+We can have pointers to the nearest equal, less or greater elements (either to left or right). This can help in certain problems
+\begin{itemize}
+	\item Find number of unique elements in range. More generally count number of elements in range, but if freq of an element is greater than 'k' take it only k.\\
+	We can do it by having pointer to kth equal element to left. Then in range[l,r] find number of elements with $ptr[i]<l$, which is the answer.
+\end{itemize}
+
 Consider a divide and conquer algorithm with time complexity recurrence.
 $T(n)=T(e_1)+T(e_2)+e_1 (e1<=e2 \wedge e1+e2=n)$.\\ 
 The closed form is $T(n) = O(nlgn)$.\\
