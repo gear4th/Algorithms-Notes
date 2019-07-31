@@ -6,6 +6,8 @@
 \begin{itemize}
 	\item When we are asked to count number of pairs that satisfy a specific condition in an array. You should first try to rearrange the equation to get all the $i^{th}$ index terms to left side and $j^{th}$ index terms to right side. This will help us reduce $O(n^2)$ to $O(n)$.
 	\item Let p be an array of distinct elements and $next_{i}$ be the smallest $j>i$ s.t $p[j]>p[i]$. Then when we draw edges(curves) from $i -> next_{i}$ on top of the array then no two edges intersect. (i.e the condition $i<j<next_{i}<next_{j}$ is never satisfied for any pair of indices i,j).
+	\item \textbf{Langford pairing} : It is possible $\iff n\equiv 0 or 3(mod 4)$.
+	\item If we are asked to find $\sum_{1}^{n-k}|f(i,i+k)|$. We can partition the array in to chains, each chain has indices which are pairwise congruent modulo k and in the same order as in array. Now we can solve seperately for each chain and combine them to produce overall answer. The above is generalized version of seperating even and odd indices and solving them seperately(example in the transforming array problems(ex. Xoring adjacent elements)).
 \end{itemize}
 
 \begin{itemize}
