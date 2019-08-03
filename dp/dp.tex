@@ -22,7 +22,18 @@ Some Points to note
 \end{itemize}
 
 \section{arrayDP}
-
+\begin{itemize}
+	\item Consider an array 'A' of length $2^n$. Then we need to calculate
+	$$F[mask] = \sum_{i\subseteq mask}A[i]$$. This can be naively be calculated in $O(3^n)$.
+	Let $$S(mask,i) = \{x|x\subseteq mask\wedge mask\oplus x < 2^{i+1}\}$$.
+	Then \[ S(mask,i)=\begin{cases} 
+      S(mask,i-1) & i^{th}\; bit\; OFF\; in\; mask  \\
+      S(mask,i-1) \bigcup S(mask\oplus 2^i,i-1) & i^{th}\; bit\; ON\; in\; mask
+   \end{cases}
+\]
+	(We can similarly do it for other operation than sigma).	 
+	
+\end{itemize}
 \section{treeDP}
 \begin{itemize}
 	\item In some problems we root the tree at random node(r). Initially we calculate a certain property $SubProp_{u}$ for a subtree rooted at node u $\forall u \in V(vertexSet)$ in $O(n)$ using dfs. Now we can reroot the tree to one of the children of r and recompute all the $Subprop_u$ in $O(1)$ as only two $SubProp_u$'s changes(one is r and the other is the new root(selected child of r)). Template is below\\

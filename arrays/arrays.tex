@@ -28,6 +28,7 @@ We can have pointers to the nearest equal, less or greater elements (either to l
 \begin{itemize}
 	\item Find number of unique elements in range. More generally count number of elements in range, but if freq of an element is greater than 'k' take it only k.\\
 	We can do it by having pointer to kth equal element to left. Then in range[l,r] find number of elements with $ptr[i]<l$, which is the answer.
+	\item Number of distinct subsequences in an array. For 'i' have the nearest left equal element 'j'. Then $dp[i]=2*dp[i-1]-dp[j]$ (where dp[i]=number of distinct subsequences in $[0\ldots i]$)
 \end{itemize}
 
 Consider a divide and conquer algorithm with time complexity recurrence.
@@ -81,7 +82,8 @@ If there are updates of type "change an element to x". Then to find that element
 \section{Permutation}
 \begin{itemize}
 	\item If we have a directed graph of n nodes, and connect ith to jth iff $p[i]=j$; then we get a bunch of disjoint cycles.
-	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.) 
+	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.)
+	\item \textbf{Factorial number system} is used to number permutations. Finding the $k^{th}$ lexicographic permutation, will be easy if $k$ is represented in this number system. And given a permutation finding its lexicographic order in this number system is straight forward. (After that we may need to convert this in to decimal).
 \end{itemize}
 
 \end{document}

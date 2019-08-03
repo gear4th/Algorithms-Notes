@@ -22,6 +22,11 @@
 	\item Range queries for GCD with a single update is straight forward. But for range update, we keep two segment trees, one to find a single element with the range update, one over difference between adjacent elements to get GCD over range of difference array. As for difference array only two elements change with range update(update is addition). We answer in $O(lgn)$ using above formula.
 	\item if d is gcd of a list of numbers. Then d divides thier sum.
 	\item In gcd problems, iterating over the prime divisors(and enumerating all the elements which are multiples of this) almost always works, Instead of iteration over all divisors.The first method has less complexity as every element has atmost $lgn$ prime divisors but $n^\frac{1}{3}$ factors hence getting enumerated only $lgn$ times.
+	\item $n!(mod m)$ is zero when $n\geq m$.
+	\item $$\sum_{i=0}^{n}i.i!=(n+1)!-1$$. 
+	\item There is a number system called \textbf{Factorial number system}.
+	From the above fact any number can be uniquely represented in this system.
+	\item For $m,n\ge 1$ $\mbox{gcd}(f_{m},f_{n})=f_{\text{gcd}(m,n)}$. Where $f$ is fibonacci. \href{./Material/fibonacci gcd.pdf}{proof}
 \end{itemize}
 
 \section{Modulo}
@@ -30,6 +35,7 @@
 	\item For prime p, and any number a relatively prime to p, a,2a,3a..p*a are all distinct modulo p.
 	\item But $a^1,a^2,\dotsc a^{p-1}$ are not distinct modulo p. (a=6, p=5)
 	\item $ab \bmod ac = a(b \bmod c)$.
+	\item Consider a number n, if you keep on modulo it by different numbers $x_i$, it only changes $logn$ times. Since every time it changes it becomes $\leq \frac{n}{2}$.
 \end{itemize}
 
 \section{CRT}
