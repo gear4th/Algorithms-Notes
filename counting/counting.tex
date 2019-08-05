@@ -11,11 +11,27 @@
 	\item When trying to solve non-linear recurrences using matrix expo.
 	$f_i = f_{i - 1} + 2i^2 + 5$. The left column vectors should be
 	$\begin{pmatrix} f_i\\ i^2\\ i\\ 1\end{pmatrix}$ and $\begin{pmatrix} f_{i-1}\\ (i-1)^2\\ i-1\\ 1\end{pmatrix}$ otherwise the matrices wouldn't be same and we cannot combine the equations.
+	\item \textbf{Lucas Theorem} : $${\binom {m}{n}}\equiv \prod _{i=0}^{k}{\binom {m_{i}}{n_{i}}}{\pmod {p}}$$
+	where $m=m_{k}p^{k}+m_{k-1}p^{k-1}+\cdots +m_{1}p+m_{0},$ and\\ 
+	$n=n_{k}p^{k}+n_{k-1}p^{k-1}+\cdots +n_{1}p+n_{0}$ are base p representations of m and n respectively.
 \end{itemize}
 \section{Probability}
 \subsection{Randomized algorithms}
 Before we use randomized algorithm, we already know answer for the given input(we can find that out using bruteforce if we have a really fast computer for bruteforcing).\\
 So to find out what the answer really is we take help of probabilities.\\
 Since our classical computer cannot generate ideal randomness. Our algorithm cannot give a random answer(we can determine even before we run it).But it gives answer with bruteforce almost all the time (we can find test cases that doesn't though).
+
+\section{Inclusion-Exclusion principle}
+Consider any sets $A_1,A_2,\ldots A_n$ (discrete mathematical objects).
+$$\abs{\bigcup\limits_{i=1}^{n} A_i} = \sum_{i=1}^n\abs{A_i} + \sum_{i<j}\abs{A_i\cap A_j} \ldots + (-1)^n\abs{A_1\cap \ldots \cap A_n}$$. As every element will contribute to both L.H.S and R.H.S by +1, Q.E.D.\\
+Now in any problem, define the sets($A_i$'s) appropriately and apply above formula to get an useful result.\\
+
+Important problems using inclusion-exclusion are:
+\begin{itemize}
+	\item finding number of subsets with certain gcd in an array.
+	\item Using Mobius function is just same as using inclusion-exclusion internally.
+	\item Number of solutions to $x_1+x_2+x_3 \ldots+x_r = n, 0\leq x_i \leq m \;\forall i$. 
+\end{itemize}
+
 
 \end{document}
