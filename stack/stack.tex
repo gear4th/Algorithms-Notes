@@ -37,6 +37,8 @@ Let ith and jth index (i$<$j) are paired.
 \begin{itemize}
 	\item If $i<l<j$ then the partner of l (named as r), $i<r<j$. \\
 	Proof: We know $sum[i..l-1]>0 => sum[l..j]<0$ since $sum[l..l] = 1$ there exists $r<j$ S.t $sum[l..r]=0$. We used the property that $sum[i..j]$ is continous over j.
-\end{itemize} 
+	\item s[i..j] is balanced.
+	\item Number of subarrays ending at 'j' and are balanced =  $dp[i-1]+1$.
+\end{itemize}
 
 \end{document}

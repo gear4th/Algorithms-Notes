@@ -13,7 +13,10 @@
 	$\begin{pmatrix} f_i\\ i^2\\ i\\ 1\end{pmatrix}$ and $\begin{pmatrix} f_{i-1}\\ (i-1)^2\\ i-1\\ 1\end{pmatrix}$ otherwise the matrices wouldn't be same and we cannot combine the equations.
 	\item \textbf{Lucas Theorem} : $${\binom {m}{n}}\equiv \prod _{i=0}^{k}{\binom {m_{i}}{n_{i}}}{\pmod {p}}$$
 	where $m=m_{k}p^{k}+m_{k-1}p^{k-1}+\cdots +m_{1}p+m_{0},$ and\\ 
-	$n=n_{k}p^{k}+n_{k-1}p^{k-1}+\cdots +n_{1}p+n_{0}$ are base p representations of m and n respectively.
+	$n=n_{k}p^{k}+n_{k-1}p^{k-1}+\cdots +n_{1}p+n_{0}$ are base p representations of m and n respectively. Note that 
+	$n_k<i_k\Longrightarrow\binom{n_k}{i_k}=0\Longrightarrow\binom{n}{i}\equiv 0 \pmod{p}$. This is equivalent to saying that there is no $x^i$ term in the expansion.
+	\item The only best way to calculate ncr other than lucas is to have prefix facts and prefix inverse facts, then answer ncr in O(1).
+	\item When n is really big and r is small, We can answer the query in O(r), without any preprocessing.
 \end{itemize}
 \section{Probability}
 \subsection{Randomized algorithms}
