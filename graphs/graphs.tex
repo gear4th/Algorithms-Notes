@@ -6,12 +6,14 @@
 
 In OJ's most of the problems concerning MST's can be solved with Kruskal's algorithm.(others are Prim's and Boruvka's).\\ 
 
-There are certain kind of problems where number of edges are huge. They are not given in the input but told to us using certain properties of vertices. (Example. There are n nodes and each has a value $a_{i}$. There is an edge between i and j iff $a[i]\oplus a[j]==k$).\\
-
-A graph is bipartite $\iff$ there is no odd cycle in the graph.
+There are certain kind of problems where number of edges are huge. They are not given in the input but told to us using certain properties of vertices. (Example. There are n nodes and each has a value $a_{i}$. There is an edge between i and j iff $a[i]\oplus a[j]==k$).
 \begin{itemize}
-	\item Sometimes these problems can be solved by adding some more nodes to the graph and connecting the real vertices with new vertices. The property for the graph(ex.number of components) asked in the question may remain same for the new graph and now edges may be less.
+	\item Sometimes these problems can be solved by adding some more nodes to the graph(may be nodes spanning all p-bit numbers) and connecting the real vertices with new vertices. The property for the graph(ex.number of components) asked in the question may remain same for the new graph and now edges may be less.
 \end{itemize}
+
+Let $d(u,v) =$ shortest path b/w $u,v$. Then $d(u,v,i)$ s.p passing through $i$ is $d(u,i)+d(v,i)$. similary s.p passing through edges $(i,j)$ is $min(d(u,i)+d(j,v),d(u,j)+d(i,v))+w(i,j)$.\\
+
+A graph is bipartite $\iff$ there is no odd cycle in the graph.\\
 
 Given a graph with both directed and undirected edges. If there are no cycles using only directed edges, we can always direct all undirected edges without forming a cycle.\href{./Material/Making undirected edges direct.pdf}{proof}.\\
 Normally problems like above involve eulerian cycle and direct edges according to that.\\
@@ -27,7 +29,6 @@ These are the different ways we approach problems based on trees.
 	\item Tree dp.
 	\item Normal dfs (greedy version of dp approach).
 	\item Process nodes from lowest level to top.(leaves to root).
-	\pagebreak
 	\begin{lstlisting}
 	void dfs(int u, int par){
 		for(auto v:g[u]){
@@ -46,6 +47,7 @@ These are the different ways we approach problems based on trees.
 	\item binary lifting.
 	\item Using Lowest common ancestor (this can be done using binary lifting).
 	\item sqrt decomposition on trees.
+	\item rerooting.
 \end{itemize}
 
 While performing tree dp we can keep a map (of values in the subtree) at each node. This is a very generic trick and seems to have high potential.

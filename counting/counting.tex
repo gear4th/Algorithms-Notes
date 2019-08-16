@@ -36,5 +36,19 @@ Important problems using inclusion-exclusion are:
 	\item Number of solutions to $x_1+x_2+x_3 \ldots+x_r = n, 0\leq x_i \leq m \;\forall i$. 
 \end{itemize}
 
+\section{Dilworth's Theorem}
+\begin{itemize}
+	\item LIS can be calculated in $O(nlogn)$, using \href{./Material/LongestIncreasingSubsequence.pdf}{link}. It can be done using optimized DP anyway though. ($dp[i]=1+max(dp[j]) \: \forall j \ni a[j]<a[i]$). Where $dp[i]$ is LIS ending at $i$.
+	\item There is another dp approach. $dp[i][j]=min(dp[i-1][j],a[i] \iff a[i]>dp[i-1][j-1])$. where $dp[i][j]$ is, using $[0\ldots i]$ elements, the minimum ending element among all the j length "increasing sequences".
+	\begin{itemize}
+		\item By induction on i we can prove that $dp[i]$ is sorted.
+		\item $dp[i]$ differs from $dp[i-1]$ at atmost one position. That is the index $j_i$ where $j_i = max\{ j| dp[i-1][j-1] < a[i] \}$.
+		\item We can update $dp[i-1]$ in-place to produce $dp[i]$.
+	\end{itemize}
+	\item To solve this problem in general. Create a bipartite graph with each element $x$ of poset on both sides ($u_x$ and $v_x$), add an edge $u_x \rightarrow v_y \iff x\leq y$ for($x\neq y$). Find the maximum matching m, then the minimum partition (width of poset) is $n-m$;
+	\item Most of the problems can be solved by converting to LIS or LDS.
+\end{itemize}
+
+
 
 \end{document}

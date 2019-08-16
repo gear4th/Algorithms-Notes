@@ -21,7 +21,7 @@
 	\end{itemize}
 	\item Some problems involving subarrays, we can approach this problem through prefix sums,(donot forget that dp also works, even in max subarray sum). 
 	\item Finding min element in subarray can be done using sparse table($O(nlgn)$ preprocess and $O(1)$ query). For 2d array ($O(nmlgnlgm)$ preprocess and $O(1)$ query).Where Seg tree takes $O(nm)$ preprocess and $O(lgnlgm)$ for query. (queries can be up to $n^2m^2$ in number).
-	\item Queries of rectangles with fixed sizes can be done in $O(mn)$ pre and $O(1)$ query.
+	\item Queries of rectangles with fixed sizes(axb) can be done in $O(mn)$ pre and $O(1)$ query. Find $rowmin[i][j]$ = minimum among $mat[i][j]\ldots mat[i][j+b-1] \forall i,j$ in $O(mn)$ using sliding window queue technique. Now compute $ans[i][j]$ = minimum among $rowmin[i][j]\ldots rowmin[i+a-1][j]$ in $O(mn)$ using the same technique. This techinque can be extended to multi-dimension, instead of matrices.
 \end{itemize}
 
 We can have pointers to the nearest equal, less or greater elements (either to left or right). This can help in certain problems
@@ -77,7 +77,13 @@ Store the segprop's and lazy updates in 4*N sized array.\\
 
 We can even store entire subsegment's in each node. The memory is only $O(nlgn)$.\\
 
-If there are updates of type "change an element to x". Then to find that element now, we only need to consider last update(of above type).
+If there are updates of type "change an element to x". Then to find that element now, we only need to consider last update(of above type).\\
+
+Given an 0-1 array we can find the index which has kth one from left, with updates. This is done by traversing the segment tree down.\\
+\begin{itemize}
+
+\item When updates of delete an element is given and queries(l,r) on updated array is given. we can simulate a process, instead of deleting the elements we just make thier value NULL at that position. And just answer the query.But as the query(l,r) indices are given for the deletion based array, we need to convert $(l,r)\rightarrow (l',r')$ indices on NULL based array (this is done by above technique). Now from (l',r') we can answer by querying on NULL based array. (This requires two segment trees).
+\end{itemize}
 
 \section{Permutation}
 \begin{itemize}
