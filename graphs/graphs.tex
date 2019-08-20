@@ -8,7 +8,7 @@ In OJ's most of the problems concerning MST's can be solved with Kruskal's algor
 
 There are certain kind of problems where number of edges are huge. They are not given in the input but told to us using certain properties of vertices. (Example. There are n nodes and each has a value $a_{i}$. There is an edge between i and j iff $a[i]\oplus a[j]==k$).
 \begin{itemize}
-	\item Sometimes these problems can be solved by adding some more nodes to the graph(may be nodes spanning all p-bit numbers) and connecting the real vertices with new vertices. The property for the graph(ex.number of components) asked in the question may remain same for the new graph and now edges may be less.
+	\item Sometimes these problems can be solved by adding some more nodes to the graph(may be nodes spanning all p-bit numbers or each node representing a bit $O(lgn)$ nodes in total) and connecting the real vertices with new vertices. The property for the graph(ex.number of components) asked in the question may remain same for the new graph and now edges may be less.
 \end{itemize}
 
 Let $d(u,v) =$ shortest path b/w $u,v$. Then $d(u,v,i)$ s.p passing through $i$ is $d(u,i)+d(v,i)$. similary s.p passing through edges $(i,j)$ is $min(d(u,i)+d(j,v),d(u,j)+d(i,v))+w(i,j)$.\\
@@ -21,6 +21,11 @@ Normally problems like above involve eulerian cycle and direct edges according t
 There are only tree edges and back edges in dfs-tree of undirected graph. Unlike in dag's can have cross edges extra.\\
 
 In an undirected graph an edge($v\rightarrow to$ where (v,to) is tree edge in dfs-tree) is a bridge $\iff$ there is no backedges from one of to's descendants to any v's ancestor node. This can be checked by having a value $high_u$ at every node, corresponding to highest node which is adjacent to u in original graph. And by checking if the minimum among descendant nodes is higher than our bridge. Or we can use intime of dfs traversal to check instead of depth as criteria.
+
+\subsection{bfs}
+In a bfs tree, for any cross edge $u\rightarrow v$. $abs(depth[u]-depth[v])\leq 1$\\
+
+Girth is the shortest cycle in undirected unweighted graph. It can be calculated in $O(VE)$.\href{./Material/Girth.pdf}{reference}.
 
 \section{Trees}
 
