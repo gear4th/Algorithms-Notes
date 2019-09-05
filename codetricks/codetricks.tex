@@ -18,6 +18,12 @@
 		shuffle(a.begin(),a.end(),rng); \\ shuffle array a.
 	\end{lstlisting}
 	\item when generating random trees to test your solution. Donot generate bigger size trees because edge cases will be missed(Probability that the tree will be a line is almost zero for bigger size).Similarly for the arrays too.
+	\item when you write code to return while in the input loop. Beware this problem doesnot contain different test cases.
+\end{itemize}
+
+\section{STL}
+\begin{itemize}
+	\item List has a huge constant factor, this is due to allocation of memory on heap when an insert operation is used, the memory is not contigous to travel easily etc.
 \end{itemize}
 
 \end{document}
