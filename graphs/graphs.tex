@@ -18,12 +18,24 @@ A graph is bipartite $\iff$ there is no odd cycle in the graph.\\
 Given a graph with both directed and undirected edges. If there are no cycles using only directed edges, we can always direct all undirected edges without forming a cycle.\href{./Material/Making undirected edges direct.pdf}{proof}.\\
 Normally problems like above involve eulerian cycle and direct edges according to that.\\
 
-There are only tree edges and back edges in dfs-tree of undirected graph. Unlike in dag's can have cross edges extra.\\
 
+\section{DFS}
+There are only tree edges and back edges in dfs-tree of undirected graph. Unlike in dag's can have cross edges and forward edges extra.\\
+
+\subsection{Un-Directed Graph}
 In an undirected graph an edge($v\rightarrow to$ where (v,to) is tree edge in dfs-tree) is a bridge $\iff$ there is no backedges from one of to's descendants to any v's ancestor node. This can be checked by having a value $high_u$ at every node, corresponding to highest node which is adjacent to u in original graph. And by checking if the minimum among descendant nodes is higher than our bridge. Or we can use intime of dfs traversal to check instead of depth as criteria.
 
-\subsection{bfs}
-In a bfs tree, for any cross edge $u\rightarrow v$. $abs(depth[u]-depth[v])\leq 1$\\
+\subsection{Directed Graph}
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{"./Material/Digraph dfstree"}
+  \caption{dfs tree digraph}
+  \label{fig:digraph}
+\end{figure}
+DiGraph has a cycle $\iff$ it has a back-edge. And also every cycle in the Digraph should contain atleast one backedge.\\
+Complete theory of directed graphs \href{./Material/Directed Graphs}{Link}
+
+\section{bfs}
+In a bfs tree of undirected graph, for any cross edge $u\rightarrow v$. $abs(depth[u]-depth[v])\leq 1$\\
 
 Girth is the shortest cycle in undirected unweighted graph. It can be calculated in $O(VE)$.\href{./Material/Girth.pdf}{reference}.
 
