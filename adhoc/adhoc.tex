@@ -6,6 +6,10 @@ Any kind of observations, tricks etc are just used to decrease the time complexi
 
 Ways to approach adhoc problem.
 \begin{itemize}
+	\item solve for smaller input by making one or multiple input dimensions 0 or 1 (may gives an idea or shows a pattern).
+	\item GUESS
+	\item If problem asks you to tell if any solution is not feasible. Identify the case when its not, probably rest of the cases will be possible.
+
 	\item For the optimization problems or counting problems(count objects of some type), put multiple \textbf{EXAMPLES} on the paper and find the pattern.
 	\item Similarly for the problems that require some quantity (nth element in array, sum of nth row in a matrix), when given relation between elements or rows to calculate them. But cannot do it due to time constraint. There may be a pattern present, write down \textbf{EXAMPLES} or write a bruteforce code for smaller n and output it to visualize the pattern.
 	\item Optimization problems: Given a set of objects(graphs, integers, etc) implicitly. Find min or max among the attributes of the objects.\\ Example maximization problem, One solution is to prove that any object has attribute $<= p$. And construct the object with attribute p.  
@@ -16,4 +20,10 @@ Given two objects(both are of same class) A and B and an operation which transfo
 	\item Find an invariant(property of the object) that remains constant after a single operation.
 	\item Find a monovariant(propert of the object) that changes by fixed amount after a single operation, no matter what the starting object is.
 \end{itemize}
+
+\section{specific problems}
+\begin{itemize}
+	\item when asked to construct a new object where elements which are adjacent in initial object are not adjacent here, try to rotate(left or right shift) some part of the object(which may produce optimal answer).
+\end{itemize}
+
 \end{document}
