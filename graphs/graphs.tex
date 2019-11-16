@@ -26,13 +26,9 @@ There are only tree edges and back edges in dfs-tree of undirected graph. Unlike
 In an undirected graph an edge($v\rightarrow to$ where (v,to) is tree edge in dfs-tree) is a bridge $\iff$ there is no backedges from one of to's descendants to any v's ancestor node. This can be checked by having a value $high_u$ at every node, corresponding to highest node which is adjacent to u in original graph. And by checking if the minimum among descendant nodes is higher than our bridge. Or we can use intime of dfs traversal to check instead of depth as criteria.
 
 \subsection{Directed Graph}
-\begin{figure}[h!]
-  \includegraphics[width=\linewidth]{"./Material/Digraph dfstree"}
-  \caption{dfs tree digraph}
-  \label{fig:digraph}
-\end{figure}
+
 DiGraph has a cycle $\iff$ it has a back-edge. And also every cycle in the Digraph should contain atleast one backedge.\\
-Complete theory of directed graphs \href{./Material/Directed Graphs}{Link}
+Complete theory of directed graphs \href{../Material/Directed Graphs}{Link}
 
 \section{bfs}
 In a bfs tree of undirected graph, for any cross edge $u\rightarrow v$. $abs(depth[u]-depth[v])\leq 1$\\
