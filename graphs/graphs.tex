@@ -103,7 +103,28 @@ Given a tree with each node having a value $a_{i}$. There are two kind of operat
 Update : update $a_{i}$ with c where $c<a_{i}$.\\
 Query : Given u. Find the deepest node with value $>= k$ which is ancestor of u.
 
-In similar problems (having pointer in tree or array) we can use binary lifting on pointer's sometimes.
+In similar problems (having pointer in tree or array) we can use binary lifting on pointer's sometimes.\\
+
+\pagebreak
+
+\subsection{Binary Lifting}
+Given the query create a binary function that satisfies (from $u -> root (1,1,1...1,0..0,0,0)$). Then we can use the following code to find the vertex with last 1.
+
+\begin{lstlisting}
+	let p[u][0] = par[u];
+	p[u][i] = p[p[u][i-1]][i-1];
+	
+	int cur = u;
+	for(int i=20;i>=0;i--){
+		if(func(p[cur][i])){
+			cur = p[cur][i];		
+		}	
+	}
+	Now cur will be the vertex with last 1 from bottom.	
+	   		
+\end{lstlisting}
+
+
 
 
 \end{document}
