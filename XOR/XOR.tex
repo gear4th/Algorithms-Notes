@@ -28,7 +28,8 @@ Some tricks in solving XOR problems
 \section{Game Theory}
 Different techniques for solving these problems.
 \begin{itemize}
-	\item Any game resembling NIM will have a small period of MEX over size. This is because Mex is calculated using previous size's mexes so at some point the set of previous size's mexes reappear(pigeon hole principle).
+	\item Any game resembling NIM with small removals will have a small period of MEX. This is because Mex is calculated using previous size's mexes so at some point the set of previous size's mexes reappear(pigeon hole principle). For this trick to work the moves(no.of stones removed) should be really small otherwise the periodicity is not guaranteed(think about it).
+	\item One other trick to find periodicity (for ex in case of big move sizes) is to write a brute force algorithm and print out the mexes and find the patter from output.
 \end{itemize}
 
 There are different kinds of differentiation used in games.
@@ -52,8 +53,7 @@ In zerosum games $payoff_{b} = -payoff_{a}$ at every terminal node.
 When optimal play is stated in the problem. They imply what's the payoff when backward induction strategy profile is used?
 
 When player tries to maximize some quantity is given in the problem. Then that quantity is payoff.\\
-\textbf{Proposition}:\textbf{ \textit{The set of subgame perfect equilibria of a finite horizon extensive game with perfect information is equal to the set of strategy profiles isolated by the procedure of backward induction.}} from "osborne introduction to game theory".
-\pagebreak
+\textbf{Proposition}:\textbf{ \textit{The set of subgame perfect equilibria of a finite horizon extensive game with perfect information is equal to the set of strategy profiles isolated by the procedure of backward induction.}} from "osborne introduction to game theory". \\
 
 There are two type of operations involved in game theory of impartial extensive(second player plays after first player finishes the move) games.
 \begin{itemize}
