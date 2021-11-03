@@ -20,6 +20,8 @@ Some Points to note
 	\href{Material/dpproof.pdf}{proof}.\pagebreak
 	\item while solving optimization dp(topdown,bottomup,forward), Keep another array 'prev' which stores the state from which this state's answer is calculated.(among all the searched subproblem states). Which makes it easy to recover the complete solution instead of only value. This can be done just by having a while loop starting at final state and iterating through prev states.
 	\item consider $dp[state]$, which gives whether state is reachable(i.e boolean). We can instead compute, in how many ways state is reachable. In most of the problems this computation does not add any additional complexity. But this information can be used to solve problems.   
+	\item For bitset optimization of dp ex. subset sum problem $bitset<smax> dp[nmax]$. If $nmax = 10^5, smax = 10^5$ it only took 577ms in codeforces. For memory use $bitset<smax> dp[2]$. 
+	\item In subset sum problem if number of distinct elements(k) are less we can make complexity $O(k*lg(n)*S)$.Construct a new array and for each pair in $(a_1,na_1),..(a_k,na_k)$ add $2^0*a_i, 2^1*a_i...., 2^r*a_i, (na_i-(2^{r+1}-1))*a_i$ where 'r' is the maximum possible.
 \end{itemize}
 
 \section{arrayDP}

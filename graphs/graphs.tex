@@ -76,6 +76,18 @@ we will traverse the tree from the down most level (level wise).
 	\item This can be implemented using dfs.
 \end{itemize}
 
+\begin{lstlisting}
+	int operations = 0;
+	for(int v : vertices)
+  		for(int child1 : children[v])
+    			for(int child2 : children[v])
+    				if(child1 != child2)
+      				operations += size_of_subtree[child1] * size_of_subtree[child2];
+	cout << operations;
+\end{lstlisting}
+The number of operation in the above code is $O(n^2)$. This fact can be used while calculating dp on trees including subtree sizes.It can be proved by induction or using the fact that any pair of nodes will contribute to operations at only their LCA.\\
+
+
 In DSU, while performing dsu one of the three types of techniques is used.
 \begin{itemize}
 	\item Path Compression \\
@@ -105,15 +117,16 @@ Query : Given u. Find the deepest node with value $>= k$ which is ancestor of u.
 
 In similar problems (having pointer in tree or array) we can use binary lifting on pointer's sometimes.\\
 
-\pagebreak
-
 \subsection{Binary Lifting}
-Given the query create a binary function that satisfies (from $u -> root (1,1,1...1,0..0,0,0)$). Then we can use the following code to find the vertex with last 1.
+Consider the path to root $u->v_1->v_2...->root$ .Given the query create a binary function that satisfies (from $u -> root (1,1,1...1,0..0,0,0)$). Then we can use the following code to find the vertex with last 1. This can be used to calculate complex problems like find the last node v(from below) such that $gcd[u,..,v]>1$. In this case to calculate function we need one more 2D array $val[u][i]$ which gives $gcd[u,...(v_{1<<i}))$ and also an integer that has $gcd[u..cur)$. Remember to calculate $func(p[cur][i])$ we use $gcd(pre,val[cur][i],a[p[cur][i]])$.
 
 \begin{lstlisting}
 	let p[u][0] = par[u];
 	p[u][i] = p[p[u][i-1]][i-1];
 	
+	if(func(u)){
+		return u;
+	}
 	int cur = u;
 	for(int i=20;i>=0;i--){
 		if(func(p[cur][i])){
