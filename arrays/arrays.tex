@@ -29,6 +29,7 @@ We can have pointers to the nearest equal, less or greater elements (either to l
 	\item Find number of unique elements in range. More generally count number of elements in range, but if freq of an element is greater than 'k' take it only k.\\
 	We can do it by having pointer to kth equal element to left. Then in range[l,r] find number of elements with $ptr[i]<l$, which is the answer.
 	\item Number of distinct subsequences in an array. For 'i' have the nearest left equal element 'j'. Then $dp[i]=2*dp[i-1]-dp[j]$ (where dp[i]=number of distinct subsequences in $[0\ldots i]$)
+	\item In problem given an operation similar to compressing subarray then we can imagine the final array and each element in final array represent contiguous segment in original array. 
 \end{itemize}
 
 Consider a divide and conquer algorithm with time complexity recurrence.
