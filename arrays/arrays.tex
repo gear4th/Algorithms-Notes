@@ -22,6 +22,8 @@
 	\item Some problems involving subarrays, we can approach this problem through prefix sums,(donot forget that dp also works, even in max subarray sum). 
 	\item Finding min element in subarray can be done using sparse table($O(nlgn)$ preprocess and $O(1)$ query). For 2d array ($O(nmlgnlgm)$ preprocess and $O(1)$ query).Where Seg tree takes $O(nm)$ preprocess and $O(lgnlgm)$ for query. (queries can be up to $n^2m^2$ in number).
 	\item Queries of rectangles with fixed sizes(axb) can be done in $O(mn)$ pre and $O(1)$ query. Find $rowmin[i][j]$ = minimum among $mat[i][j]\ldots mat[i][j+b-1] \forall i,j$ in $O(mn)$ using sliding window queue technique. Now compute $ans[i][j]$ = minimum among $rowmin[i][j]\ldots rowmin[i+a-1][j]$ in $O(mn)$ using the same technique. This techinque can be extended to multi-dimension, instead of matrices.
+	\item Even with a normal swap(not adjacent ones) parity of inversions changes every time.
+	\item The order in which swaps are executed matters and results in a completely different sequence.
 \end{itemize}
 
 We can have pointers to the nearest equal, less or greater elements (either to left or right). This can help in certain problems
