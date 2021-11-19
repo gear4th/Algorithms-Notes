@@ -19,6 +19,16 @@
 	$n_k<i_k\Longrightarrow\binom{n_k}{i_k}=0\Longrightarrow\binom{n}{i}\equiv 0 \pmod{p}$. This is equivalent to saying that there is no $x^i$ term in the expansion.
 	\item The only best way to calculate ncr other than lucas is to have prefix facts and prefix inverse facts, then answer ncr in O(1).
 	\item When n is really big and r is small, We can answer the query in O(r), without any preprocessing.
+	\item Even though bitset dp has two loops it's time complexity is not $O(N*2^N)$.
+		\begin{lstlisting}
+			for(int i=0;i<n;i++){
+				for(int j=0;j<(1<<i);j++){
+					dp[i+1][j]+= dp[i][j];
+					dp[i+1][j|(1<<i)] += dp[i][j];			
+				}			
+			}
+		\end{lstlisting}
+		Because j being only iterated untill $(1<<i)$ complexity is $O(2^{n+1})$. Similarly for three loops it will be $O(N*2^{n+1})$.
 \end{itemize}
 \section{Probability}
 \subsection{Randomized algorithms}
