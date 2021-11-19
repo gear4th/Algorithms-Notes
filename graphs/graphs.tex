@@ -117,6 +117,10 @@ Query : Given u. Find the deepest node with value $>= k$ which is ancestor of u.
 
 In similar problems (having pointer in tree or array) we can use binary lifting on pointer's sometimes.\\
 
+\begin{itemize}
+	\item When tree is flattened(euler path) then for any node the component consisting of it's parent will be two segments in the flattened array. This will be easy to use when rerooting technique is not possible.
+\end{itemize}
+
 \subsection{Binary Lifting}
 Consider the path to root $u->v_1->v_2...->root$ .Given the query create a binary function that satisfies (from $u -> root (1,1,1...1,0..0,0,0)$). Then we can use the following code to find the vertex with last 1. This can be used to calculate complex problems like find the last node v(from below) such that $gcd[u,..,v]>1$. In this case to calculate function we need one more 2D array $val[u][i]$ which gives $gcd[u,...(v_{1<<i}))$ and also an integer that has $gcd[u..cur)$. Remember to calculate $func(p[cur][i])$ we use $gcd(pre,val[cur][i],a[p[cur][i]])$.
 
