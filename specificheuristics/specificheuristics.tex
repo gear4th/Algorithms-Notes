@@ -1,0 +1,95 @@
+\documentclass[../Notes.tex]{subfiles}
+
+\begin{document}
+\chapter{Specific Heuristics}
+Consult these before and during contest. These only contain heuristics that are not obvious. For example to consider Minimum spanning tree during problem is hard, but once you saw that considering prim's/kruskal's is straightforward.
+
+\section{General/Adhoc}
+Topics to force
+\begin{itemize}
+	\item Binary Search.
+	\item Convex Hull trick.
+	\item Dilworth's theorem.
+	\item Longest increasing subsequence.
+	\item Meet in the middle. (i.e $O(2^{\frac{n}{2}})$)
+	\item Mo's algorithm
+	\item Nearest small element on $O(n)$
+	\item Stack.
+	\item Ternary search.
+	\item Two pointers.
+\end{itemize}
+
+Strategies
+\begin{itemize}
+	\item If asked to count certain objects (pairs, subsequences, subarrays etc). Write down given required condition they should satisfy and also try to infer more conditions from them.
+	\item Solve for the objects \textbf{not} satisfying the condition and subtract them from total.
+	\item Inclusion-exclusion.
+	\item Invariants/monovariants.
+	\item For optimization problems one strategy is to construct the object first(like guess) and prove that object is optimal.
+	\item Brute force with unexpected time complexity.
+	\item operations can be converted in to equivalent forms. Any set of given operations can be interchanged with some set of our operations and vice-versa.
+	\item In some problems only few variables are independent rest all are dependent on the former due to the condition given. We can use this to decrease our complexity.
+	\item Bitsets for complexity reduction.
+\end{itemize}
+
+\section{Bitwise}
+Topics to force
+\begin{itemize}
+	\item Trie.
+	\item Lexicographical ordering.
+	\item SOS DP.
+\end{itemize}
+
+Strategies
+\begin{itemize}
+	\item Consider each bit separately.
+	\item Divide and conquer on sorted array(since bits are ordered).
+\end{itemize}
+\section{Number Theory}
+Topics to force
+\begin{itemize}
+	\item Binet's formula
+	\item Euler's totient function
+	\item Mobius function
+	\item Fibonacci numbers.
+	\item GCD.
+	\item MEX.
+	\item Prime decomposition.
+\end{itemize}
+
+\section{Graph Theory}
+Topics to force
+\begin{itemize}
+	\item Bipartite Graph.
+	\item Centroid Decomposition.
+	\item Graph coloring.
+	\item Halls theorem.
+	\item Heavy-Light decomposition.
+	\item LCA.
+	\item Matching
+	\item Flow
+	\item Spanning tree.
+	\item Min cut.
+	\item Strongly connected component.
+	\item Eulerian path.
+\end{itemize}
+
+\section{DP}
+Strategy
+\begin{itemize}
+	\item If we doing a bool dp, and it is monotonic over one dimension then we can remove that dimension and put it in the dp-value itself reducing complexity.(For example minimum index to make dp = 1).
+\end{itemize}
+
+\section{Coding}
+\begin{itemize}
+	\item Unordered map.
+\end{itemize}
+
+\section{Strings}
+Topics to force
+\begin{itemize}
+	\item Hashing
+	\item Z-algorithm.
+	\item Suffix array.
+\end{itemize}
+\end{document}
