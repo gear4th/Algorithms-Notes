@@ -21,6 +21,17 @@
 	\item when you write code to return while in the input loop. Beware this problem doesnot contain different test cases.
 \end{itemize}
 
+List of good to remember time complexities.
+\begin{itemize}
+	\item map $1e7$ random insertions 10sec.
+	\item unorderedMap $1e7$ random insertions 5sec.
+	\item unorderedMap with custom hash $1e7$ random insertions 5sec.
+	\item set/multiset $1e7$ random insertions 10sec.
+	\item $1e7$ Random vector lowerBounds on array of size $2e5$ 327ms.
+	\item SegTree $1e7$ random operations(which includes both updates and queries) 1.8sec.
+	\item Lazy SegTree $1e7$ random operations(which includes both updates and queries) 12sec.  
+\end{itemize}
+
 \section{STL}
 \begin{itemize}
 	\item List has a huge constant factor, this is due to allocation of memory on heap when an insert operation is used, the memory is not contiguous to travel easily etc. And mostly due to cache non-friendly behaviour (as the memory is not contiguous).
