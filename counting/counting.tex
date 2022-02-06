@@ -35,6 +35,8 @@
 Before we use randomized algorithm, we already know answer for the given input(we can find that out using bruteforce if we have a really fast computer for bruteforcing).\\
 So to find out what the answer really is we take help of probabilities.\\
 Since our classical computer cannot generate ideal randomness. Our algorithm cannot give a random answer(we can determine even before we run it).But it gives answer with bruteforce almost all the time (we can find test cases that doesn't though).
+\subsection{Expected Value}
+When we want to use dp for expected value, try to define dp[i] as "what is the expected value if we start from i and stop the experiment whenever we reach the final state n" because consider this definition "what is the expected value if we start from 0 and stop the experiment whenever we reach i",in some cases there is a mistake in definition, there may be some samples where i is never reached. Consider the problem "Find expected no of moves before 'bitwise or' becomes $2^k-1$".
 
 \section{Inclusion-Exclusion principle}
 Consider any sets $A_1,A_2,\ldots A_n$ (discrete mathematical objects).
