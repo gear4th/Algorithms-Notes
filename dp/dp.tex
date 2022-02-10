@@ -23,6 +23,7 @@ Some Points to note
 	\item For bitset optimization of dp ex. subset sum problem $bitset<smax> dp[nmax]$. If $nmax = 10^5, smax = 10^5$ it only took 577ms in codeforces. For memory use $bitset<smax> dp[2]$. 
 	\item In subset sum problem if number of distinct elements(k) are less we can make complexity $O(k*lg(n)*S)$.Construct a new array and for each pair in $(a_1,na_1),..(a_k,na_k)$ add $2^0*a_i, 2^1*a_i...., 2^r*a_i, (na_i-(2^{r+1}-1))*a_i$ where 'r' is the maximum possible.
 	\item If the dp is too hard to implement, change the whole dp by adding dimensions. For example dp in circular array instead of having dp[i] we can have $dp[i][0/1][0/1]$ 2nd dim indicates whether the index '1' is included or not and 3rd dim indicates whether index 'i' is included or not. Now in $dp[N][0/1][0/1]$ based on the second and third dimension we can update the final answer.
+	\item Consider the problem, given an array($a_i\leq9$) make all elements equal by doing "select all occurrences of a number and change it to another number" and also given the cost to change k elements at once. Here the intuitive way is to do dp[msk] = minimum cost to make all bits in msk equal. But transitions are \textbf{not} to take another digit and make it equal to those in msk. It's actually to take another mask and making them both equal. This gives us $O(3^n)$.
 \end{itemize}
 
 \section{arrayDP}
