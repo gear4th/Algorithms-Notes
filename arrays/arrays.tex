@@ -39,6 +39,8 @@ $T(n)=T(e_1)+T(e_2)+e_1 (e1\leq e2 \wedge e1+e2=n)$.\\
 The closed form is $T(n) = O(nlgn)$.\\
 This can be proved using induction or realising the fact the every element is included in the $e_1$ term atmost lgn times.\\
 
+Given two increasing sequences a,b and m pairs of indices which are bad. Find a two elements one from each array with minimum sum excluding the bad pairs. This can be solved in $O(m)$. For each bad pair add (x+1,y) and (x,y+1) to an array of potentially useful pairs and also add (0,0). Now we only need to consider pairs from that array for minimum.
+
 \section{Segment Tree}
 You are given an array of elements(may be null initially) and queries over subarrays.\\
 There are two properties for a segment tree.
