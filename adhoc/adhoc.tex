@@ -12,7 +12,8 @@ Ways to approach adhoc problem.
 
 	\item For the optimization problems or counting problems(count objects of some type), put multiple \textbf{EXAMPLES} on the paper and find the pattern.
 	\item Similarly for the problems that require some quantity (nth element in array, sum of nth row in a matrix), when given relation between elements or rows to calculate them. But cannot do it due to time constraint. There may be a pattern present, write down \textbf{EXAMPLES} or write a bruteforce code for smaller n and output it to visualize the pattern.
-	\item Optimization problems: Given a set of objects(graphs, integers, etc) implicitly. Find min or max among the attributes of the objects.\\ Example maximization problem, One solution is to prove that any object has attribute $<= p$. And construct the object with attribute p.  
+	\item Optimization problems: Given a set of objects(graphs, integers, etc) implicitly. Find min or max among the attributes of the objects.\\ Example maximization problem, One solution is to prove that any object has attribute $<= p$. And construct the object with attribute p.
+	\item Consider an empty grid, you can paint any 2x2 square with any color, is it possible to obtain a given grid. If a square is already painted it will be \textbf{repainted}. This "will be repainted" sentence should trigger us to look at operations from back to front. The solutions is, if we have the optimal sequence of operations lets say of size n, for any 'i' make union of all the squares included in operations [i+1..n] '.'s then 2x2 square of ith operation must contain only single color with maybe some '.'s. Now we can just bfs from last operation(which we know).
 \end{itemize}
 
 Given two objects(both are of same class) A and B and an operation which transforms any object \textbf{X} to some object \textbf{Y}. Find minimum number of operations to convert A to B. Some ways to approach this problem.
