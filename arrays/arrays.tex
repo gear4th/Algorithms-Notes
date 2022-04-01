@@ -96,6 +96,8 @@ Given an 0-1 array we can find the index which has kth one from left, with updat
 	\item You can find number of inversions in an array using policy data structure (balance BST). Infact we can do many variations of inversion problem. (Example. Find number of inversions when equal elements are present, Which is not possible using merge sort.)
 	\item \textbf{Factorial number system} is used to number permutations. Finding the $k^{th}$ lexicographic permutation, will be easy if $k$ is represented in this number system. And given a permutation finding its lexicographic order in this number system is straight forward. (After that we may need to convert this in to decimal). Search in wikipedia for process.
 	\item Let $dp[i][j]$ is number of permutations of length i with j inversions. $$dp[i][j] = \sum_{k=0}^{i-1}dp[i-1][j-k]$$. (Iterate over the last element of permutation).
+	\item The minimum number of swaps(not adjacent) required to make a permutation $a -> b$ is (n-no.of components(which are cycles btw)) in the graph where edges are $a_i -> b_i$
+	\item Let the inversion number be the number of inversions in a permutation(also minimum number of swaps), then with a swap the parity of inversion number always changes.
 \end{itemize}
 
 \end{document}
