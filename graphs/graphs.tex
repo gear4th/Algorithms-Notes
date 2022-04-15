@@ -33,7 +33,9 @@ Complete theory of directed graphs \href{../Material/Directed Graphs}{Link}
 \section{bfs}
 In a bfs tree of undirected graph, for any cross edge $u\rightarrow v$. $abs(depth[u]-depth[v])\leq 1$\\
 
-Girth is the shortest cycle in undirected unweighted graph. It can be calculated in $O(VE)$.\href{./Material/Girth.pdf}{reference}.
+Girth is the shortest cycle in undirected unweighted graph. It can be calculated in $O(VE)$.\href{./Material/Girth.pdf}{reference}.\\
+
+For 0-1 bfs you should visit next node if it's current distance is greater than $curdist+0/1$(so each node maybe visited multiple times). But in normal bfs you can simply not visit new node if it's already visited even for once.
 
 \section{Trees}
 
