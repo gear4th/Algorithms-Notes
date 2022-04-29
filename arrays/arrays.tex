@@ -90,6 +90,8 @@ Given an 0-1 array we can find the index which has kth one from left, with updat
 \item When updates of delete an element is given and queries(l,r) on updated array is given. we can simulate a process, instead of deleting the elements we just make thier value NULL at that position. And just answer the query.But as the query(l,r) indices are given for the deletion based array, we need to convert $(l,r)\rightarrow (l',r')$ indices on NULL based array (this is done by above technique). Now from (l',r') we can answer by querying on NULL based array. (This requires two segment trees).
 \end{itemize}
 
+To get first k maximums from a segment tree don't use a vector of k maximums at each node even if k is small. It's theoretically and practically better to pull maximums one by one by setting them to -inf after each pull. Of course you need to reverse all the operations at the end of the query.
+
 \section{Permutation}
 \begin{itemize}
 	\item If we have a directed graph of n nodes, and connect ith to jth iff $p[i]=j$; then we get a bunch of disjoint cycles.
